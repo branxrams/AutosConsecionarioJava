@@ -11,19 +11,68 @@ package logica;
 public class Concesionario {
     private static final int SIZE = 150;
 
-    private final Vehiculo[] catalogo;
-    private int indiceActual;
+    private final Cliente[] listaCliente;
+    private final Vehiculo[] catalogoVehiculo;
+    private int indiceVehiculo;
+    private int indiceCliente;
 
     public Concesionario() {
-        catalogo = new Vehiculo[SIZE];
-        indiceActual = 0;
+        listaCliente = new Cliente[SIZE];
+        catalogoVehiculo = new Vehiculo[SIZE];
+        indiceVehiculo = 0;
+        indiceCliente = 0;
     }
 
-    public Vehiculo[] getCatalogo() {
-        return catalogo;
+    public Vehiculo[] getCatalogoVehiculo() {
+        return catalogoVehiculo;
     }
 
-    public int getInidiceActual() {
-        return indiceActual;
+    public Cliente[] getListaCliente() {
+        return listaCliente;
     }
+
+    public int getIndiceVehiculo() {
+        return indiceVehiculo;
+    }
+
+    public int getInidiceCliente() {
+        return indiceCliente;
+    }
+
+    public Cliente buscarCliente(String dni) {
+        for (Cliente cliente : listaCliente) {
+            if (cliente != null && cliente.getDni() == dni) {
+                return cliente;
+            }
+        }
+        return null;
+    }
+
+    public Vehiculo buscarVehiculo(String matricula) {
+        for (Vehiculo vehiculo : catalogoVehiculo) {
+            if (vehiculo != null && vehiculo.getMatricula() == matricula) {
+                return vehiculo;
+            }
+        }
+        return null;
+    }
+
+    public boolean agregarCliente(Cliente cliente) {
+        if (buscarCliente(cliente.getDni()) == null) {
+            listaCliente[indiceVehiculo] = cliente;
+            indiceCliente++;
+            return true;
+        }
+        return false;
+    }
+
+    public boolean agregarVehiculo(Vehiculo vehiculo) {
+        if (buscarVehiculo(vehiculo.getMatricula()) == null) {
+            catalogoVehiculo[indiceVehiculo] = vehiculo;
+            indiceVehiculo++;
+            return true;
+        }
+        return false;
+    }
+
 }
