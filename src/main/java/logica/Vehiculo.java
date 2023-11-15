@@ -9,6 +9,7 @@ package logica;
  * @author brara
  */
 public class Vehiculo {
+    private String matricula;
     private String marca;
     private String modelo;
     private String cilindrada;
@@ -17,7 +18,8 @@ public class Vehiculo {
     public Vehiculo() { // Constructor por defecto
     }
 
-    public Vehiculo(String marca, String modelo, String cilindrada, int precio) {
+    public Vehiculo(String matricula, String marca, String modelo, String cilindrada, int precio) {
+        this.matricula = matricula;
         this.marca = marca;
         this.modelo = modelo;
         this.cilindrada = cilindrada;
@@ -42,6 +44,10 @@ public class Vehiculo {
         return precio;
     }
 
+    public String getMatricula() {
+        return matricula;
+    }
+
     // Setters
 
     public void setMarca(String marca) {
@@ -58,5 +64,9 @@ public class Vehiculo {
 
     public void setMarca(int precio) {
         this.precio = precio;
+    }
+
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 }
