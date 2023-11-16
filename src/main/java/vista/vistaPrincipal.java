@@ -36,350 +36,280 @@ public class vistaPrincipal extends javax.swing.JFrame {
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
         // <editor-fold defaultstate="collapsed" desc="Generated
-        // Code">//GEN-BEGIN:initComponents
-        private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-                panelConcesionaria = new javax.swing.JPanel();
-                tabAgregar = new javax.swing.JTabbedPane();
-                panelAgregar = new javax.swing.JPanel();
-                panelAgregarCliente = new javax.swing.JPanel();
-                lblNombre = new javax.swing.JLabel();
-                lblDni = new javax.swing.JLabel();
-                lblDireccion = new javax.swing.JLabel();
-                lblTelefono = new javax.swing.JLabel();
-                txtNombre = new javax.swing.JTextField();
-                txtDni = new javax.swing.JTextField();
-                txtDireccion = new javax.swing.JTextField();
-                txtTelefono = new javax.swing.JTextField();
-                btnAgregarCliente = new javax.swing.JButton();
-                panelAgregarVehiculo = new javax.swing.JPanel();
-                lblMatricula = new javax.swing.JLabel();
-                lblMarca = new javax.swing.JLabel();
-                lblModelo = new javax.swing.JLabel();
-                lblCilindraje = new javax.swing.JLabel();
-                lblPrecio = new javax.swing.JLabel();
-                btnAgregarVehiculo = new javax.swing.JButton();
-                txtMatricula = new javax.swing.JTextField();
-                txtMarca = new javax.swing.JTextField();
-                txtModelo = new javax.swing.JTextField();
-                txtCilindraje = new javax.swing.JTextField();
-                txtPrecio = new javax.swing.JTextField();
-                panelClientes = new javax.swing.JTabbedPane();
-                panelVehiculos = new javax.swing.JTabbedPane();
+        panelConcesionaria = new javax.swing.JPanel();
+        tabAgregar = new javax.swing.JTabbedPane();
+        panelAgregar = new javax.swing.JPanel();
+        panelAgregarCliente = new javax.swing.JPanel();
+        lblNombre = new javax.swing.JLabel();
+        lblDni = new javax.swing.JLabel();
+        lblDireccion = new javax.swing.JLabel();
+        lblTelefono = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        txtDni = new javax.swing.JTextField();
+        txtDireccion = new javax.swing.JTextField();
+        txtTelefono = new javax.swing.JTextField();
+        btnAgregarCliente = new javax.swing.JButton();
+        panelAgregarVehiculo = new javax.swing.JPanel();
+        lblMatricula = new javax.swing.JLabel();
+        lblMarca = new javax.swing.JLabel();
+        lblModelo = new javax.swing.JLabel();
+        lblCilindraje = new javax.swing.JLabel();
+        lblPrecio = new javax.swing.JLabel();
+        btnAgregarVehiculo = new javax.swing.JButton();
+        txtMatricula = new javax.swing.JTextField();
+        txtMarca = new javax.swing.JTextField();
+        txtModelo = new javax.swing.JTextField();
+        txtCilindraje = new javax.swing.JTextField();
+        txtPrecio = new javax.swing.JTextField();
+        panelVender = new javax.swing.JPanel();
+        panelClientes = new javax.swing.JPanel();
+        panelVehiculos = new javax.swing.JPanel();
 
-                setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-                panelAgregarCliente.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Nuevo Cliente"));
+        panelAgregarCliente.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Nuevo Cliente"));
 
-                lblNombre.setText("Nombre:");
+        lblNombre.setText("Nombre:");
 
-                lblDni.setText("DNI:");
+        lblDni.setText("DNI:");
 
-                lblDireccion.setText("Dirección:");
+        lblDireccion.setText("Dirección:");
 
-                lblTelefono.setText("Telefono:");
+        lblTelefono.setText("Telefono:");
 
-                btnAgregarCliente.setText("Agregar");
-                btnAgregarCliente.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnAgregarClienteActionPerformed(evt);
-                        }
-                });
+        txtNombre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNombreActionPerformed(evt);
+            }
+        });
 
-                javax.swing.GroupLayout panelAgregarClienteLayout = new javax.swing.GroupLayout(panelAgregarCliente);
-                panelAgregarCliente.setLayout(panelAgregarClienteLayout);
-                panelAgregarClienteLayout.setHorizontalGroup(
-                                panelAgregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(panelAgregarClienteLayout.createSequentialGroup()
-                                                                .addGap(32, 32, 32)
-                                                                .addGroup(panelAgregarClienteLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(lblNombre,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(lblDni,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(lblDireccion,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(lblTelefono,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                61,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addGap(18, 18, 18)
-                                                                .addGroup(panelAgregarClienteLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addComponent(txtNombre)
-                                                                                .addComponent(txtDni)
-                                                                                .addComponent(txtDireccion)
-                                                                                .addComponent(txtTelefono))
-                                                                .addGap(23, 23, 23))
-                                                .addGroup(panelAgregarClienteLayout.createSequentialGroup()
-                                                                .addGap(146, 146, 146)
-                                                                .addComponent(btnAgregarCliente)
-                                                                .addContainerGap(149, Short.MAX_VALUE)));
-                panelAgregarClienteLayout.setVerticalGroup(
-                                panelAgregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(panelAgregarClienteLayout.createSequentialGroup()
-                                                                .addGroup(panelAgregarClienteLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addGroup(panelAgregarClienteLayout
-                                                                                                .createSequentialGroup()
-                                                                                                .addGap(32, 32, 32)
-                                                                                                .addComponent(lblNombre))
-                                                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                                                panelAgregarClienteLayout
-                                                                                                                .createSequentialGroup()
-                                                                                                                .addContainerGap()
-                                                                                                                .addComponent(txtNombre,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(panelAgregarClienteLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                .addComponent(lblDni)
-                                                                                .addComponent(txtDni,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(panelAgregarClienteLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(lblDireccion)
-                                                                                .addComponent(txtDireccion,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(panelAgregarClienteLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(lblTelefono)
-                                                                                .addComponent(txtTelefono,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                Short.MAX_VALUE)
-                                                                .addComponent(btnAgregarCliente)
-                                                                .addContainerGap()));
+        btnAgregarCliente.setText("Agregar");
+        btnAgregarCliente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarClienteActionPerformed(evt);
+            }
+        });
 
-                panelAgregarVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Nuevo Vehiculo"));
+        javax.swing.GroupLayout panelAgregarClienteLayout = new javax.swing.GroupLayout(panelAgregarCliente);
+        panelAgregarCliente.setLayout(panelAgregarClienteLayout);
+        panelAgregarClienteLayout.setHorizontalGroup(
+            panelAgregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAgregarClienteLayout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addGroup(panelAgregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblDireccion, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(panelAgregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtNombre)
+                    .addComponent(txtDni)
+                    .addComponent(txtDireccion)
+                    .addComponent(txtTelefono))
+                .addGap(23, 23, 23))
+            .addGroup(panelAgregarClienteLayout.createSequentialGroup()
+                .addGap(146, 146, 146)
+                .addComponent(btnAgregarCliente)
+                .addContainerGap(149, Short.MAX_VALUE))
+        );
+        panelAgregarClienteLayout.setVerticalGroup(
+            panelAgregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAgregarClienteLayout.createSequentialGroup()
+                .addGroup(panelAgregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelAgregarClienteLayout.createSequentialGroup()
+                        .addGap(32, 32, 32)
+                        .addComponent(lblNombre))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarClienteLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelAgregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblDni)
+                    .addComponent(txtDni, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelAgregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDireccion)
+                    .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelAgregarClienteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblTelefono)
+                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAgregarCliente)
+                .addContainerGap())
+        );
 
-                lblMatricula.setText("Matricula:");
+        panelAgregarVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Nuevo Vehiculo"));
 
-                lblMarca.setText("Marca:");
+        lblMatricula.setText("Matricula:");
 
-                lblModelo.setText("Modelo:");
+        lblMarca.setText("Marca:");
 
-                lblCilindraje.setText("Cilindraje:");
+        lblModelo.setText("Modelo:");
 
-                lblPrecio.setText("Precio:");
+        lblCilindraje.setText("Cilindraje:");
 
-                btnAgregarVehiculo.setText("Agregar");
-                btnAgregarVehiculo.addActionListener(new java.awt.event.ActionListener() {
-                        public void actionPerformed(java.awt.event.ActionEvent evt) {
-                                btnAgregarVehiculoActionPerformed(evt);
-                        }
-                });
+        lblPrecio.setText("Precio:");
 
-                javax.swing.GroupLayout panelAgregarVehiculoLayout = new javax.swing.GroupLayout(panelAgregarVehiculo);
-                panelAgregarVehiculo.setLayout(panelAgregarVehiculoLayout);
-                panelAgregarVehiculoLayout.setHorizontalGroup(
-                                panelAgregarVehiculoLayout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(panelAgregarVehiculoLayout.createSequentialGroup()
-                                                                .addGap(30, 30, 30)
-                                                                .addGroup(panelAgregarVehiculoLayout
-                                                                                .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                                false)
-                                                                                .addComponent(lblMatricula,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(lblMarca,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(lblModelo,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(lblCilindraje,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(lblPrecio,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(panelAgregarVehiculoLayout
-                                                                                .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.LEADING)
-                                                                                .addComponent(txtMatricula,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                245,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(txtMarca,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                245,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(txtModelo,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                245,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(txtPrecio,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                245,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(txtCilindraje,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                245,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addContainerGap(23, Short.MAX_VALUE))
-                                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING,
-                                                                panelAgregarVehiculoLayout.createSequentialGroup()
-                                                                                .addContainerGap(
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(btnAgregarVehiculo)
-                                                                                .addGap(138, 138, 138)));
-                panelAgregarVehiculoLayout.setVerticalGroup(
-                                panelAgregarVehiculoLayout
-                                                .createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(panelAgregarVehiculoLayout.createSequentialGroup()
-                                                                .addGap(17, 17, 17)
-                                                                .addGroup(panelAgregarVehiculoLayout
-                                                                                .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                .addComponent(lblMatricula)
-                                                                                .addComponent(txtMatricula,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(panelAgregarVehiculoLayout
-                                                                                .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                .addComponent(lblMarca)
-                                                                                .addComponent(txtMarca,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(panelAgregarVehiculoLayout
-                                                                                .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                .addComponent(lblModelo)
-                                                                                .addComponent(txtModelo,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(panelAgregarVehiculoLayout
-                                                                                .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.BASELINE)
-                                                                                .addComponent(txtCilindraje,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                                .addComponent(lblCilindraje))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addGroup(panelAgregarVehiculoLayout
-                                                                                .createParallelGroup(
-                                                                                                javax.swing.GroupLayout.Alignment.TRAILING)
-                                                                                .addComponent(lblPrecio)
-                                                                                .addComponent(txtPrecio,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                                                33, Short.MAX_VALUE)
-                                                                .addComponent(btnAgregarVehiculo)
-                                                                .addContainerGap()));
+        btnAgregarVehiculo.setText("Agregar");
+        btnAgregarVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarVehiculoActionPerformed(evt);
+            }
+        });
 
-                javax.swing.GroupLayout panelAgregarLayout = new javax.swing.GroupLayout(panelAgregar);
-                panelAgregar.setLayout(panelAgregarLayout);
-                panelAgregarLayout.setHorizontalGroup(
-                                panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(panelAgregarLayout.createSequentialGroup()
-                                                                .addContainerGap()
-                                                                .addComponent(panelAgregarCliente,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addPreferredGap(
-                                                                                javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                                .addComponent(panelAgregarVehiculo,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                Short.MAX_VALUE)));
-                panelAgregarLayout.setVerticalGroup(
-                                panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addGroup(panelAgregarLayout.createSequentialGroup()
-                                                                .addGap(31, 31, 31)
-                                                                .addGroup(panelAgregarLayout.createParallelGroup(
-                                                                                javax.swing.GroupLayout.Alignment.LEADING,
-                                                                                false)
-                                                                                .addComponent(panelAgregarCliente,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE)
-                                                                                .addComponent(panelAgregarVehiculo,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                                                Short.MAX_VALUE))
-                                                                .addContainerGap(114, Short.MAX_VALUE)));
+        javax.swing.GroupLayout panelAgregarVehiculoLayout = new javax.swing.GroupLayout(panelAgregarVehiculo);
+        panelAgregarVehiculo.setLayout(panelAgregarVehiculoLayout);
+        panelAgregarVehiculoLayout.setHorizontalGroup(
+            panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAgregarVehiculoLayout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblMatricula, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblMarca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblModelo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblCilindraje, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblPrecio, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtCilindraje, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarVehiculoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnAgregarVehiculo)
+                .addGap(138, 138, 138))
+        );
+        panelAgregarVehiculoLayout.setVerticalGroup(
+            panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAgregarVehiculoLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblMatricula)
+                    .addComponent(txtMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblMarca)
+                    .addComponent(txtMarca, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblModelo)
+                    .addComponent(txtModelo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtCilindraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblCilindraje))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblPrecio)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 33, Short.MAX_VALUE)
+                .addComponent(btnAgregarVehiculo)
+                .addContainerGap())
+        );
 
-                tabAgregar.addTab("Agregar", panelAgregar);
-                tabAgregar.addTab("Clientes", panelClientes);
-                tabAgregar.addTab("Vehiculos", panelVehiculos);
+        javax.swing.GroupLayout panelAgregarLayout = new javax.swing.GroupLayout(panelAgregar);
+        panelAgregar.setLayout(panelAgregarLayout);
+        panelAgregarLayout.setHorizontalGroup(
+            panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAgregarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelAgregarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelAgregarLayout.setVerticalGroup(
+            panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelAgregarLayout.createSequentialGroup()
+                .addGap(31, 31, 31)
+                .addGroup(panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelAgregarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelAgregarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(102, Short.MAX_VALUE))
+        );
 
-                javax.swing.GroupLayout panelConcesionariaLayout = new javax.swing.GroupLayout(panelConcesionaria);
-                panelConcesionaria.setLayout(panelConcesionariaLayout);
-                panelConcesionariaLayout.setHorizontalGroup(
-                                panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(tabAgregar));
-                panelConcesionariaLayout.setVerticalGroup(
-                                panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(tabAgregar));
+        tabAgregar.addTab("Agregar", panelAgregar);
 
-                javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-                getContentPane().setLayout(layout);
-                layout.setHorizontalGroup(
-                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(panelConcesionaria, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
-                layout.setVerticalGroup(
-                                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                .addComponent(panelConcesionaria, javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                                javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE));
+        javax.swing.GroupLayout panelVenderLayout = new javax.swing.GroupLayout(panelVender);
+        panelVender.setLayout(panelVenderLayout);
+        panelVenderLayout.setHorizontalGroup(
+            panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 774, Short.MAX_VALUE)
+        );
+        panelVenderLayout.setVerticalGroup(
+            panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 393, Short.MAX_VALUE)
+        );
 
-                pack();
-        }// </editor-fold>//GEN-END:initComponents
+        tabAgregar.addTab("tab2", panelVender);
 
-        private void btnAgregarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAgregarVehiculoActionPerformed
-                if (txtMatricula.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("")
+        javax.swing.GroupLayout panelClientesLayout = new javax.swing.GroupLayout(panelClientes);
+        panelClientes.setLayout(panelClientesLayout);
+        panelClientesLayout.setHorizontalGroup(
+            panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 774, Short.MAX_VALUE)
+        );
+        panelClientesLayout.setVerticalGroup(
+            panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 393, Short.MAX_VALUE)
+        );
+
+        tabAgregar.addTab("tab3", panelClientes);
+
+        javax.swing.GroupLayout panelVehiculosLayout = new javax.swing.GroupLayout(panelVehiculos);
+        panelVehiculos.setLayout(panelVehiculosLayout);
+        panelVehiculosLayout.setHorizontalGroup(
+            panelVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 774, Short.MAX_VALUE)
+        );
+        panelVehiculosLayout.setVerticalGroup(
+            panelVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 393, Short.MAX_VALUE)
+        );
+
+        tabAgregar.addTab("tab4", panelVehiculos);
+
+        javax.swing.GroupLayout panelConcesionariaLayout = new javax.swing.GroupLayout(panelConcesionaria);
+        panelConcesionaria.setLayout(panelConcesionariaLayout);
+        panelConcesionariaLayout.setHorizontalGroup(
+            panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelConcesionariaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tabAgregar)
+                .addGap(25, 25, 25))
+        );
+        panelConcesionariaLayout.setVerticalGroup(
+            panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelConcesionariaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(tabAgregar)
+                .addContainerGap())
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelConcesionaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(panelConcesionaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        pack();
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVehiculoActionPerformed
+        if (txtMatricula.getText().equals("") || txtMarca.getText().equals("") || txtModelo.getText().equals("")
                                 || txtCilindraje.getText().equals("") || txtPrecio.getText().equals("")) {
                         return;
                 }
@@ -403,11 +333,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Vehiculo ya existe.", "Vehiculo nuevo Cliente.",
                                         JOptionPane.ERROR_MESSAGE);
                 }
+    }//GEN-LAST:event_btnAgregarVehiculoActionPerformed
 
-        }// GEN-LAST:event_btnAgregarVehiculoActionPerformed
-
-        private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAgregarClienteActionPerformed
-                if (txtNombre.getText().equals("") || txtDni.getText().equals("") || txtDireccion.getText().equals("")
+    private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
+        if (txtNombre.getText().equals("") || txtDni.getText().equals("") || txtDireccion.getText().equals("")
                                 || txtTelefono.getText().equals("")) {
                         return;
                 }
@@ -430,7 +359,12 @@ public class vistaPrincipal extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(null, "Cliente ya existe.", "Agregar nuevo Cliente.",
                                         JOptionPane.ERROR_MESSAGE);
                 }
-        }// GEN-LAST:event_btnAgregarClienteActionPerformed
+    }//GEN-LAST:event_btnAgregarClienteActionPerformed
+
+    private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNombreActionPerformed
+
 
         /**
          * @param args the command line arguments
@@ -480,33 +414,34 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 });
         }
 
-        // Variables declaration - do not modify//GEN-BEGIN:variables
-        private javax.swing.JButton btnAgregarCliente;
-        private javax.swing.JButton btnAgregarVehiculo;
-        private javax.swing.JLabel lblCilindraje;
-        private javax.swing.JLabel lblDireccion;
-        private javax.swing.JLabel lblDni;
-        private javax.swing.JLabel lblMarca;
-        private javax.swing.JLabel lblMatricula;
-        private javax.swing.JLabel lblModelo;
-        private javax.swing.JLabel lblNombre;
-        private javax.swing.JLabel lblPrecio;
-        private javax.swing.JLabel lblTelefono;
-        private javax.swing.JPanel panelAgregar;
-        private javax.swing.JPanel panelAgregarCliente;
-        private javax.swing.JPanel panelAgregarVehiculo;
-        private javax.swing.JTabbedPane panelClientes;
-        private javax.swing.JPanel panelConcesionaria;
-        private javax.swing.JTabbedPane panelVehiculos;
-        private javax.swing.JTabbedPane tabAgregar;
-        private javax.swing.JTextField txtCilindraje;
-        private javax.swing.JTextField txtDireccion;
-        private javax.swing.JTextField txtDni;
-        private javax.swing.JTextField txtMarca;
-        private javax.swing.JTextField txtMatricula;
-        private javax.swing.JTextField txtModelo;
-        private javax.swing.JTextField txtNombre;
-        private javax.swing.JTextField txtPrecio;
-        private javax.swing.JTextField txtTelefono;
-        // End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarCliente;
+    private javax.swing.JButton btnAgregarVehiculo;
+    private javax.swing.JLabel lblCilindraje;
+    private javax.swing.JLabel lblDireccion;
+    private javax.swing.JLabel lblDni;
+    private javax.swing.JLabel lblMarca;
+    private javax.swing.JLabel lblMatricula;
+    private javax.swing.JLabel lblModelo;
+    private javax.swing.JLabel lblNombre;
+    private javax.swing.JLabel lblPrecio;
+    private javax.swing.JLabel lblTelefono;
+    private javax.swing.JPanel panelAgregar;
+    private javax.swing.JPanel panelAgregarCliente;
+    private javax.swing.JPanel panelAgregarVehiculo;
+    private javax.swing.JPanel panelClientes;
+    private javax.swing.JPanel panelConcesionaria;
+    private javax.swing.JPanel panelVehiculos;
+    private javax.swing.JPanel panelVender;
+    private javax.swing.JTabbedPane tabAgregar;
+    private javax.swing.JTextField txtCilindraje;
+    private javax.swing.JTextField txtDireccion;
+    private javax.swing.JTextField txtDni;
+    private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtMatricula;
+    private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtTelefono;
+    // End of variables declaration//GEN-END:variables
 }
