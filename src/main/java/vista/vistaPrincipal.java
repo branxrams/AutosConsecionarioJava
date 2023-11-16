@@ -78,6 +78,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
         lblDatosMarca = new javax.swing.JLabel();
         lblDatosCilindrada = new javax.swing.JLabel();
         btnVenderVehiculo = new javax.swing.JButton();
+        panelOpcAdiconalesl1 = new javax.swing.JPanel();
+        chckAireAcondicionado = new javax.swing.JCheckBox();
+        chckMetalizado = new javax.swing.JCheckBox();
+        btnCalcularPrecio = new javax.swing.JButton();
         panelDatosVenta = new javax.swing.JPanel();
         lblDniCliente = new javax.swing.JLabel();
         panelDatosVendedor = new javax.swing.JPanel();
@@ -254,7 +258,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addGroup(panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelAgregarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelAgregarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(57, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         tabAgregar.addTab("Agregar", panelAgregar);
@@ -321,41 +325,90 @@ public class vistaPrincipal extends javax.swing.JFrame {
         btnVenderVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnVenderVehiculo.setText("Vender");
 
+        panelOpcAdiconalesl1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones Adicionales", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        chckAireAcondicionado.setText("Aire Acondicionado");
+        chckAireAcondicionado.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chckAireAcondicionadoActionPerformed(evt);
+            }
+        });
+
+        chckMetalizado.setText("Metalizado");
+
+        btnCalcularPrecio.setText("Calcular Nuevo Precio");
+
+        javax.swing.GroupLayout panelOpcAdiconalesl1Layout = new javax.swing.GroupLayout(panelOpcAdiconalesl1);
+        panelOpcAdiconalesl1.setLayout(panelOpcAdiconalesl1Layout);
+        panelOpcAdiconalesl1Layout.setHorizontalGroup(
+            panelOpcAdiconalesl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelOpcAdiconalesl1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCalcularPrecio)
+                .addGap(30, 30, 30))
+            .addGroup(panelOpcAdiconalesl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelOpcAdiconalesl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chckMetalizado)
+                    .addComponent(chckAireAcondicionado))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        panelOpcAdiconalesl1Layout.setVerticalGroup(
+            panelOpcAdiconalesl1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelOpcAdiconalesl1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(chckAireAcondicionado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(chckMetalizado)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCalcularPrecio)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout panelDatosVehiculoLayout = new javax.swing.GroupLayout(panelDatosVehiculo);
         panelDatosVehiculo.setLayout(panelDatosVehiculoLayout);
         panelDatosVehiculoLayout.setHorizontalGroup(
             panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosVehiculoLayout.createSequentialGroup()
+                .addContainerGap(20, Short.MAX_VALUE)
                 .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
+                        .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDatosPrecio)
+                            .addComponent(lblDatosCilindrada))
+                        .addGap(368, 368, 368))
+                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
                         .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblDatosMatricula)
-                            .addComponent(lblDatosPrecio)
                             .addComponent(lblDatosModelo)
-                            .addComponent(lblDatosMarca)
-                            .addComponent(lblDatosCilindrada)))
-                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
-                        .addGap(171, 171, 171)
-                        .addComponent(btnVenderVehiculo)))
-                .addContainerGap(182, Short.MAX_VALUE))
+                            .addComponent(lblDatosMarca))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 155, Short.MAX_VALUE)
+                        .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(47, 47, 47))))
+            .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+                .addGap(181, 181, 181)
+                .addComponent(btnVenderVehiculo)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelDatosVehiculoLayout.setVerticalGroup(
             panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addComponent(lblDatosMatricula)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblDatosMarca)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDatosModelo)
+                .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+                        .addComponent(lblDatosMatricula)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lblDatosMarca)
+                        .addGap(11, 11, 11)
+                        .addComponent(lblDatosModelo))
+                    .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblDatosCilindrada)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblDatosPrecio)
-                .addGap(30, 30, 30)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(btnVenderVehiculo)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addGap(16, 16, 16))
         );
 
         panelDatosVenta.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Venta", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -439,7 +492,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addComponent(panelDatosVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(panelDatosVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(62, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
         panelVenderLayout.setVerticalGroup(
             panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -460,11 +513,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
         panelClientes.setLayout(panelClientesLayout);
         panelClientesLayout.setHorizontalGroup(
             panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 788, Short.MAX_VALUE)
+            .addGap(0, 796, Short.MAX_VALUE)
         );
         panelClientesLayout.setVerticalGroup(
             panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
+            .addGap(0, 353, Short.MAX_VALUE)
         );
 
         tabAgregar.addTab("Vehiculo", panelClientes);
@@ -473,11 +526,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
         panelVehiculos.setLayout(panelVehiculosLayout);
         panelVehiculosLayout.setHorizontalGroup(
             panelVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 788, Short.MAX_VALUE)
+            .addGap(0, 796, Short.MAX_VALUE)
         );
         panelVehiculosLayout.setVerticalGroup(
             panelVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 348, Short.MAX_VALUE)
+            .addGap(0, 353, Short.MAX_VALUE)
         );
 
         tabAgregar.addTab("Cliente", panelVehiculos);
@@ -488,13 +541,14 @@ public class vistaPrincipal extends javax.swing.JFrame {
             panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConcesionariaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabAgregar))
+                .addComponent(tabAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 796, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         panelConcesionariaLayout.setVerticalGroup(
             panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConcesionariaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
+                .addComponent(tabAgregar)
                 .addContainerGap())
         );
 
@@ -576,6 +630,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtLetrasMatriculaActionPerformed
 
+    private void chckAireAcondicionadoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chckAireAcondicionadoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_chckAireAcondicionadoActionPerformed
+
 
         /**
          * @param args the command line arguments
@@ -629,7 +687,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnAgregarVehiculo;
     private javax.swing.JButton btnBuscarMatricula;
+    private javax.swing.JButton btnCalcularPrecio;
     private javax.swing.JButton btnVenderVehiculo;
+    private javax.swing.JCheckBox chckAireAcondicionado;
+    private javax.swing.JCheckBox chckMetalizado;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -657,6 +718,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel panelDatosVehiculo;
     private javax.swing.JPanel panelDatosVendedor;
     private javax.swing.JPanel panelDatosVenta;
+    private javax.swing.JPanel panelOpcAdiconalesl1;
     private javax.swing.JPanel panelVehiculos;
     private javax.swing.JPanel panelVender;
     private javax.swing.JTabbedPane tabAgregar;
