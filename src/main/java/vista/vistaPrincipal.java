@@ -76,16 +76,19 @@ public class vistaPrincipal extends javax.swing.JFrame {
         btnBuscarMatricula = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
         panelDatosVehiculo = new javax.swing.JPanel();
-        lblDatosMatricula = new javax.swing.JLabel();
-        lblDatosPrecio = new javax.swing.JLabel();
-        lblDatosModelo = new javax.swing.JLabel();
-        lblDatosMarca = new javax.swing.JLabel();
-        lblDatosCilindrada = new javax.swing.JLabel();
         btnVenderVehiculo = new javax.swing.JButton();
         panelOpcAdiconalesl1 = new javax.swing.JPanel();
         chckAireAcondicionado = new javax.swing.JCheckBox();
         chckMetalizado = new javax.swing.JCheckBox();
         btnCalcularPrecio = new javax.swing.JButton();
+        scrollDatosVehiculo = new javax.swing.JScrollPane();
+        panelDatosVehiculoScroll = new javax.swing.JPanel();
+        lblDatosMatricula = new javax.swing.JLabel();
+        lblDatosMarca = new javax.swing.JLabel();
+        lblDatosModelo = new javax.swing.JLabel();
+        lblDatosCilindrada = new javax.swing.JLabel();
+        lblDatosPrecio = new javax.swing.JLabel();
+        btnCederVehiculo = new javax.swing.JButton();
         panelDatosVenta = new javax.swing.JPanel();
         lblDniCliente = new javax.swing.JLabel();
         panelDatosVendedor = new javax.swing.JPanel();
@@ -263,9 +266,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
             .addGroup(panelAgregarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
                 .addComponent(panelAgregarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         panelAgregarLayout.setVerticalGroup(
             panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -274,7 +277,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addGroup(panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelAgregarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelAgregarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(78, Short.MAX_VALUE))
+                .addContainerGap(64, Short.MAX_VALUE))
         );
 
         tabAgregar.addTab("Agregar", panelAgregar);
@@ -334,21 +337,6 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         panelDatosVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Vehiculo"));
 
-        lblDatosMatricula.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDatosMatricula.setText("Matricula: ");
-
-        lblDatosPrecio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDatosPrecio.setText("Precio: ");
-
-        lblDatosModelo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDatosModelo.setText("Modelo: ");
-
-        lblDatosMarca.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDatosMarca.setText("Marca:");
-
-        lblDatosCilindrada.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDatosCilindrada.setText("CC: ");
-
         btnVenderVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnVenderVehiculo.setText("Vender");
 
@@ -387,55 +375,90 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addComponent(chckAireAcondicionado)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(chckMetalizado)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(btnCalcularPrecio)
                 .addContainerGap())
         );
+
+        lblDatosMatricula.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblDatosMatricula.setText("Matricula: ");
+
+        lblDatosMarca.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblDatosMarca.setText("Marca:");
+
+        lblDatosModelo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblDatosModelo.setText("Modelo: ");
+
+        lblDatosCilindrada.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblDatosCilindrada.setText("CC: ");
+
+        lblDatosPrecio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblDatosPrecio.setText("Precio: ");
+
+        javax.swing.GroupLayout panelDatosVehiculoScrollLayout = new javax.swing.GroupLayout(panelDatosVehiculoScroll);
+        panelDatosVehiculoScroll.setLayout(panelDatosVehiculoScrollLayout);
+        panelDatosVehiculoScrollLayout.setHorizontalGroup(
+            panelDatosVehiculoScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVehiculoScrollLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDatosVehiculoScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDatosMatricula)
+                    .addComponent(lblDatosMarca)
+                    .addComponent(lblDatosModelo)
+                    .addComponent(lblDatosCilindrada)
+                    .addComponent(lblDatosPrecio))
+                .addContainerGap(160, Short.MAX_VALUE))
+        );
+        panelDatosVehiculoScrollLayout.setVerticalGroup(
+            panelDatosVehiculoScrollLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVehiculoScrollLayout.createSequentialGroup()
+                .addComponent(lblDatosMatricula)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDatosMarca)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDatosModelo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDatosCilindrada)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDatosPrecio)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        scrollDatosVehiculo.setViewportView(panelDatosVehiculoScroll);
+
+        btnCederVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCederVehiculo.setText("Ceder");
 
         javax.swing.GroupLayout panelDatosVehiculoLayout = new javax.swing.GroupLayout(panelDatosVehiculo);
         panelDatosVehiculo.setLayout(panelDatosVehiculoLayout);
         panelDatosVehiculoLayout.setHorizontalGroup(
             panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosVehiculoLayout.createSequentialGroup()
-                .addContainerGap(20, Short.MAX_VALUE)
-                .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
-                        .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDatosMatricula)
-                            .addComponent(lblDatosModelo)
-                            .addComponent(lblDatosMarca))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20))
-                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
-                        .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblDatosCilindrada)
-                            .addComponent(lblDatosPrecio))
-                        .addGap(368, 402, Short.MAX_VALUE))))
-            .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
-                .addGap(181, 181, 181)
-                .addComponent(btnVenderVehiculo)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(10, Short.MAX_VALUE)
+                .addComponent(scrollDatosVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnVenderVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnCederVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         panelDatosVehiculoLayout.setVerticalGroup(
             panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosVehiculoLayout.createSequentialGroup()
+                .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
-                        .addComponent(lblDatosMatricula)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lblDatosMarca)
-                        .addGap(11, 11, 11)
-                        .addComponent(lblDatosModelo))
-                    .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDatosCilindrada)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblDatosPrecio)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(btnVenderVehiculo)
-                .addGap(16, 16, 16))
+                        .addContainerGap()
+                        .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnVenderVehiculo)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnCederVehiculo)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(scrollDatosVehiculo)))
+                .addContainerGap())
         );
 
         panelDatosVenta.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Venta", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
@@ -505,7 +528,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addComponent(txtDniCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelDatosVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelVenderLayout = new javax.swing.GroupLayout(panelVender);
@@ -519,19 +542,19 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addComponent(panelDatosVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addComponent(panelDatosVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         panelVenderLayout.setVerticalGroup(
             panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelVenderLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelDatosVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(panelVenderLayout.createSequentialGroup()
                         .addComponent(panelBuscarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelDatosVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(panelDatosVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(panelDatosVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         tabAgregar.addTab("Vender", panelVender);
@@ -544,7 +567,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         );
         panelClientesLayout.setVerticalGroup(
             panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 375, Short.MAX_VALUE)
+            .addGap(0, 361, Short.MAX_VALUE)
         );
 
         tabAgregar.addTab("Vehiculo", panelClientes);
@@ -557,7 +580,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         );
         panelVehiculosLayout.setVerticalGroup(
             panelVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 375, Short.MAX_VALUE)
+            .addGap(0, 361, Short.MAX_VALUE)
         );
 
         tabAgregar.addTab("Cliente", panelVehiculos);
@@ -575,7 +598,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
             panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConcesionariaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabAgregar)
+                .addComponent(tabAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 396, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -748,6 +771,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnAgregarVehiculo;
     private javax.swing.JButton btnBuscarMatricula;
     private javax.swing.JButton btnCalcularPrecio;
+    private javax.swing.JButton btnCederVehiculo;
     private javax.swing.JButton btnVenderVehiculo;
     private javax.swing.JCheckBox chckAireAcondicionado;
     private javax.swing.JCheckBox chckMetalizado;
@@ -778,11 +802,13 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel panelClientes;
     private javax.swing.JPanel panelConcesionaria;
     private javax.swing.JPanel panelDatosVehiculo;
+    private javax.swing.JPanel panelDatosVehiculoScroll;
     private javax.swing.JPanel panelDatosVendedor;
     private javax.swing.JPanel panelDatosVenta;
     private javax.swing.JPanel panelOpcAdiconalesl1;
     private javax.swing.JPanel panelVehiculos;
     private javax.swing.JPanel panelVender;
+    private javax.swing.JScrollPane scrollDatosVehiculo;
     private javax.swing.JTabbedPane tabAgregar;
     private javax.swing.JTextField txtCilindraje;
     private javax.swing.JTextField txtDireccion;
