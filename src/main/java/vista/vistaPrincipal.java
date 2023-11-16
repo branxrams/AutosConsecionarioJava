@@ -25,6 +25,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 initComponents();
 
                 concesionario = new Concesionario();
+                setLocationRelativeTo(null);
         }
 
         /**
@@ -65,12 +66,32 @@ public class vistaPrincipal extends javax.swing.JFrame {
         txtCilindraje = new javax.swing.JTextField();
         txtPrecio = new javax.swing.JTextField();
         panelVender = new javax.swing.JPanel();
+        panelBuscarVehiculo = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtLetrasMatricula = new javax.swing.JTextField();
+        txtNumerosMatricula = new javax.swing.JTextField();
+        btnBuscarMatricula = new javax.swing.JButton();
+        panelDatosVehiculo = new javax.swing.JPanel();
+        lblDatosMatricula = new javax.swing.JLabel();
+        lblDatosPrecio = new javax.swing.JLabel();
+        lblDatosModelo = new javax.swing.JLabel();
+        lblDatosMarca = new javax.swing.JLabel();
+        lblDatosCilindrada = new javax.swing.JLabel();
+        btnVenderVehiculo = new javax.swing.JButton();
+        panelDatosVenta = new javax.swing.JPanel();
+        lblDniCliente = new javax.swing.JLabel();
+        panelDatosVendedor = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtDniVendedor = new javax.swing.JTextField();
+        txtNombreVendedor = new javax.swing.JTextField();
+        txtDniCliente = new javax.swing.JTextField();
         panelClientes = new javax.swing.JPanel();
         panelVehiculos = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        panelAgregarCliente.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Nuevo Cliente"));
+        panelAgregarCliente.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Agregar Nuevo Cliente", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         lblNombre.setText("Nombre:");
 
@@ -143,7 +164,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        panelAgregarVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder("Agregar Nuevo Vehiculo"));
+        panelAgregarVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Agregar Nuevo Vehiculo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
         lblMatricula.setText("Matricula:");
 
@@ -233,49 +254,233 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addGroup(panelAgregarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(panelAgregarCliente, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelAgregarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(102, Short.MAX_VALUE))
+                .addContainerGap(57, Short.MAX_VALUE))
         );
 
         tabAgregar.addTab("Agregar", panelAgregar);
+
+        panelBuscarVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Vehiculo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel1.setText("Ingrese Matricula");
+
+        txtLetrasMatricula.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtLetrasMatriculaActionPerformed(evt);
+            }
+        });
+
+        btnBuscarMatricula.setText("Buscar");
+
+        javax.swing.GroupLayout panelBuscarVehiculoLayout = new javax.swing.GroupLayout(panelBuscarVehiculo);
+        panelBuscarVehiculo.setLayout(panelBuscarVehiculoLayout);
+        panelBuscarVehiculoLayout.setHorizontalGroup(
+            panelBuscarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscarVehiculoLayout.createSequentialGroup()
+                .addGap(28, 28, 28)
+                .addGroup(panelBuscarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(panelBuscarVehiculoLayout.createSequentialGroup()
+                        .addComponent(txtLetrasMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNumerosMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnBuscarMatricula)))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+        panelBuscarVehiculoLayout.setVerticalGroup(
+            panelBuscarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscarVehiculoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelBuscarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtLetrasMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNumerosMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscarMatricula))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+
+        panelDatosVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Vehiculo"));
+
+        lblDatosMatricula.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblDatosMatricula.setText("Matricula: ");
+
+        lblDatosPrecio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblDatosPrecio.setText("Precio: ");
+
+        lblDatosModelo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblDatosModelo.setText("Modelo: ");
+
+        lblDatosMarca.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblDatosMarca.setText("Marca:");
+
+        lblDatosCilindrada.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblDatosCilindrada.setText("CC: ");
+
+        btnVenderVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnVenderVehiculo.setText("Vender");
+
+        javax.swing.GroupLayout panelDatosVehiculoLayout = new javax.swing.GroupLayout(panelDatosVehiculo);
+        panelDatosVehiculo.setLayout(panelDatosVehiculoLayout);
+        panelDatosVehiculoLayout.setHorizontalGroup(
+            panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+                .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblDatosMatricula)
+                            .addComponent(lblDatosPrecio)
+                            .addComponent(lblDatosModelo)
+                            .addComponent(lblDatosMarca)
+                            .addComponent(lblDatosCilindrada)))
+                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+                        .addGap(171, 171, 171)
+                        .addComponent(btnVenderVehiculo)))
+                .addContainerGap(182, Short.MAX_VALUE))
+        );
+        panelDatosVehiculoLayout.setVerticalGroup(
+            panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(lblDatosMatricula)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblDatosMarca)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDatosModelo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(lblDatosCilindrada)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblDatosPrecio)
+                .addGap(30, 30, 30)
+                .addComponent(btnVenderVehiculo)
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        panelDatosVenta.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Venta", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        lblDniCliente.setText("DNI Cliente:");
+
+        panelDatosVendedor.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Vendedor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel2.setText("DNI Vendedor: ");
+
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jLabel3.setText("Nombre:");
+
+        javax.swing.GroupLayout panelDatosVendedorLayout = new javax.swing.GroupLayout(panelDatosVendedor);
+        panelDatosVendedor.setLayout(panelDatosVendedorLayout);
+        panelDatosVendedorLayout.setHorizontalGroup(
+            panelDatosVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVendedorLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDatosVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosVendedorLayout.createSequentialGroup()
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDniVendedor))
+                    .addGroup(panelDatosVendedorLayout.createSequentialGroup()
+                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(21, 21, 21)
+                        .addComponent(txtNombreVendedor)))
+                .addContainerGap())
+        );
+        panelDatosVendedorLayout.setVerticalGroup(
+            panelDatosVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVendedorLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(panelDatosVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel2)
+                    .addComponent(txtDniVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelDatosVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addComponent(txtNombreVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout panelDatosVentaLayout = new javax.swing.GroupLayout(panelDatosVenta);
+        panelDatosVenta.setLayout(panelDatosVentaLayout);
+        panelDatosVentaLayout.setHorizontalGroup(
+            panelDatosVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVentaLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDatosVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosVentaLayout.createSequentialGroup()
+                        .addComponent(lblDniCliente)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtDniCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(panelDatosVendedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        panelDatosVentaLayout.setVerticalGroup(
+            panelDatosVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVentaLayout.createSequentialGroup()
+                .addGap(13, 13, 13)
+                .addGroup(panelDatosVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lblDniCliente)
+                    .addComponent(txtDniCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelDatosVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout panelVenderLayout = new javax.swing.GroupLayout(panelVender);
         panelVender.setLayout(panelVenderLayout);
         panelVenderLayout.setHorizontalGroup(
             panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 774, Short.MAX_VALUE)
+            .addGroup(panelVenderLayout.createSequentialGroup()
+                .addGap(12, 12, 12)
+                .addGroup(panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelBuscarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelDatosVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(panelDatosVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
         );
         panelVenderLayout.setVerticalGroup(
             panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 393, Short.MAX_VALUE)
+            .addGroup(panelVenderLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelVenderLayout.createSequentialGroup()
+                        .addComponent(panelBuscarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(panelDatosVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelDatosVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabAgregar.addTab("tab2", panelVender);
+        tabAgregar.addTab("Vender", panelVender);
 
         javax.swing.GroupLayout panelClientesLayout = new javax.swing.GroupLayout(panelClientes);
         panelClientes.setLayout(panelClientesLayout);
         panelClientesLayout.setHorizontalGroup(
             panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 774, Short.MAX_VALUE)
+            .addGap(0, 788, Short.MAX_VALUE)
         );
         panelClientesLayout.setVerticalGroup(
             panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 393, Short.MAX_VALUE)
+            .addGap(0, 348, Short.MAX_VALUE)
         );
 
-        tabAgregar.addTab("tab3", panelClientes);
+        tabAgregar.addTab("Vehiculo", panelClientes);
 
         javax.swing.GroupLayout panelVehiculosLayout = new javax.swing.GroupLayout(panelVehiculos);
         panelVehiculos.setLayout(panelVehiculosLayout);
         panelVehiculosLayout.setHorizontalGroup(
             panelVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 774, Short.MAX_VALUE)
+            .addGap(0, 788, Short.MAX_VALUE)
         );
         panelVehiculosLayout.setVerticalGroup(
             panelVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 393, Short.MAX_VALUE)
+            .addGap(0, 348, Short.MAX_VALUE)
         );
 
-        tabAgregar.addTab("tab4", panelVehiculos);
+        tabAgregar.addTab("Cliente", panelVehiculos);
 
         javax.swing.GroupLayout panelConcesionariaLayout = new javax.swing.GroupLayout(panelConcesionaria);
         panelConcesionaria.setLayout(panelConcesionariaLayout);
@@ -283,14 +488,13 @@ public class vistaPrincipal extends javax.swing.JFrame {
             panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConcesionariaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabAgregar)
-                .addGap(25, 25, 25))
+                .addComponent(tabAgregar))
         );
         panelConcesionariaLayout.setVerticalGroup(
             panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConcesionariaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabAgregar)
+                .addComponent(tabAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, 383, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -298,7 +502,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelConcesionaria, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelConcesionaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,6 +535,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
                         txtModelo.setText("");
                         txtCilindraje.setText("");
                         txtPrecio.setText("");
+                        this.lblDatosMatricula.setText(vehiculo.toString());
                 } else {
                         JOptionPane.showMessageDialog(null, "Vehiculo ya existe.", "Vehiculo nuevo Cliente.",
                                         JOptionPane.ERROR_MESSAGE);
@@ -364,6 +571,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private void txtNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtNombreActionPerformed
+
+    private void txtLetrasMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLetrasMatriculaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtLetrasMatriculaActionPerformed
 
 
         /**
@@ -417,9 +628,20 @@ public class vistaPrincipal extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnAgregarVehiculo;
+    private javax.swing.JButton btnBuscarMatricula;
+    private javax.swing.JButton btnVenderVehiculo;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lblCilindraje;
+    private javax.swing.JLabel lblDatosCilindrada;
+    private javax.swing.JLabel lblDatosMarca;
+    private javax.swing.JLabel lblDatosMatricula;
+    private javax.swing.JLabel lblDatosModelo;
+    private javax.swing.JLabel lblDatosPrecio;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblDni;
+    private javax.swing.JLabel lblDniCliente;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblMatricula;
     private javax.swing.JLabel lblModelo;
@@ -429,18 +651,27 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel panelAgregar;
     private javax.swing.JPanel panelAgregarCliente;
     private javax.swing.JPanel panelAgregarVehiculo;
+    private javax.swing.JPanel panelBuscarVehiculo;
     private javax.swing.JPanel panelClientes;
     private javax.swing.JPanel panelConcesionaria;
+    private javax.swing.JPanel panelDatosVehiculo;
+    private javax.swing.JPanel panelDatosVendedor;
+    private javax.swing.JPanel panelDatosVenta;
     private javax.swing.JPanel panelVehiculos;
     private javax.swing.JPanel panelVender;
     private javax.swing.JTabbedPane tabAgregar;
     private javax.swing.JTextField txtCilindraje;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtDni;
+    private javax.swing.JTextField txtDniCliente;
+    private javax.swing.JTextField txtDniVendedor;
+    private javax.swing.JTextField txtLetrasMatricula;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtMatricula;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNombreVendedor;
+    private javax.swing.JTextField txtNumerosMatricula;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
