@@ -49,7 +49,7 @@
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="0" attributes="0">
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="tabAgregar" pref="396" max="32767" attributes="0"/>
+                  <Component id="tabAgregar" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
           </Group>
@@ -79,6 +79,11 @@
                           <Component id="panelAgregarVehiculo" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                       </Group>
+                      <Group type="102" alignment="1" attributes="0">
+                          <EmptySpace max="32767" attributes="0"/>
+                          <Component id="lblCantidadVehiculosRegistrados" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+                      </Group>
                   </Group>
                 </DimensionLayout>
                 <DimensionLayout dim="1">
@@ -89,7 +94,9 @@
                               <Component id="panelAgregarCliente" max="32767" attributes="0"/>
                               <Component id="panelAgregarVehiculo" max="32767" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="64" max="32767" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="lblCantidadVehiculosRegistrados" min="-2" max="-2" attributes="0"/>
+                          <EmptySpace pref="42" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -188,9 +195,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNombre">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNombreActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtDni">
                     </Component>
@@ -349,6 +353,11 @@
                     </Component>
                   </SubComponents>
                 </Container>
+                <Component class="javax.swing.JLabel" name="lblCantidadVehiculosRegistrados">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Cantidad de Vehiculos registrados: 0/150"/>
+                  </Properties>
+                </Component>
               </SubComponents>
             </Container>
             <Container class="javax.swing.JPanel" name="panelVender">
@@ -450,9 +459,6 @@
                       </Properties>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtLetrasMatricula">
-                      <Events>
-                        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtLetrasMatriculaActionPerformed"/>
-                      </Events>
                     </Component>
                     <Component class="javax.swing.JTextField" name="txtNumerosMatricula">
                     </Component>
@@ -493,7 +499,6 @@
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                                   <Component id="panelOpcAdiconalesl1" max="32767" attributes="0"/>
                                   <Component id="btnVenderVehiculo" max="32767" attributes="0"/>
-                                  <Component id="btnCederVehiculo" max="32767" attributes="0"/>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
                           </Group>
@@ -506,15 +511,13 @@
                                   <Group type="102" alignment="1" attributes="0">
                                       <EmptySpace max="-2" attributes="0"/>
                                       <Component id="panelOpcAdiconalesl1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnVenderVehiculo" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="btnCederVehiculo" min="-2" max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+                                      <Component id="btnVenderVehiculo" min="-2" pref="68" max="-2" attributes="0"/>
                                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                                   </Group>
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                                      <Component id="scrollDatosVehiculo" max="32767" attributes="0"/>
+                                      <Component id="scrollDatosVehiculo" pref="281" max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <EmptySpace max="-2" attributes="0"/>
@@ -577,9 +580,6 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Aire Acondicionado"/>
                           </Properties>
-                          <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chckAireAcondicionadoActionPerformed"/>
-                          </Events>
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chckMetalizado">
                           <Properties>
@@ -590,6 +590,9 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Calcular Nuevo Precio"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcularPrecioActionPerformed"/>
+                          </Events>
                         </Component>
                       </SubComponents>
                     </Container>
@@ -677,14 +680,6 @@
                         </Container>
                       </SubComponents>
                     </Container>
-                    <Component class="javax.swing.JButton" name="btnCederVehiculo">
-                      <Properties>
-                        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                          <Font name="Segoe UI" size="18" style="0"/>
-                        </Property>
-                        <Property name="text" type="java.lang.String" value="Ceder"/>
-                      </Properties>
-                    </Component>
                   </SubComponents>
                 </Container>
                 <Container class="javax.swing.JPanel" name="panelDatosVenta">
