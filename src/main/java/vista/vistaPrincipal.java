@@ -219,6 +219,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         lblVentasNombreCliente = new javax.swing.JLabel();
         lblVentasNombreVendedor = new javax.swing.JLabel();
         lblVentasDniVendedor = new javax.swing.JLabel();
+        lblVentasUsado = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -879,6 +880,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
         lblVentasDniVendedor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblVentasDniVendedor.setText("Dni Vendedor: -");
 
+        lblVentasUsado.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblVentasUsado.setText("Usado: -");
+
         javax.swing.GroupLayout panelDatosVentaBuscarLayout = new javax.swing.GroupLayout(panelDatosVentaBuscar);
         panelDatosVentaBuscar.setLayout(panelDatosVentaBuscarLayout);
         panelDatosVentaBuscarLayout.setHorizontalGroup(
@@ -892,7 +896,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addComponent(lblVentasFechaVenta)
                     .addComponent(lblVentasNombreCliente)
                     .addComponent(lblVentasDniVendedor)
-                    .addComponent(lblVentasNombreVendedor))
+                    .addComponent(lblVentasNombreVendedor)
+                    .addComponent(lblVentasUsado))
                 .addContainerGap(341, Short.MAX_VALUE))
         );
         panelDatosVentaBuscarLayout.setVerticalGroup(
@@ -911,7 +916,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addComponent(lblVentasModelo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblVentasOpcAdiconales)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(lblVentasUsado)
+                .addContainerGap(147, Short.MAX_VALUE))
         );
 
         lblVentasFechaVenta.getAccessibleContext().setAccessibleName("Fecha Venta: -");
@@ -1149,18 +1156,27 @@ public class vistaPrincipal extends javax.swing.JFrame {
         }
 
         String dniCliente = txtBuscarVentaCliente.getText();
+        String usado = "";
+        
 
         //Buscamos el cliente dentro del registro de ventas
         Venta venta = concesionario.buscarVentaId(dniCliente);
 
         // si el resultado de la busqueda nos trae algo imprimimos en los label
         if (venta != null) {
+            if (venta.getCedido()) {
+                usado = "Si";
+            }else{
+                usado = "No";
+            }
+            
             lblVentasDniCliente.setText("DNI Cliente: " + venta.getCliente().getDni());
             lblVentasNombreCliente.setText("Cliente: " + venta.getCliente().getNombre());
             lblVentasDniVendedor.setText("DNI Vendedor: " + venta.getVendedor().getDni());
             lblVentasNombreVendedor.setText("Vendedor: " + venta.getVendedor().getNombre());
             lblVentasFechaVenta.setText("Fecha Venta: " + venta.getFecha());
             lblVentasModelo.setText("Modelo: " + venta.getVehiculo().getModelo());
+            lblVentasUsado.setText("Usado: " + usado);
             //lblVentasDniCliente.setText("Opc Adicionales: " + venta.getCliente().getDni());
 
             txtBuscarVentaCliente.setText("");
@@ -1200,19 +1216,19 @@ public class vistaPrincipal extends javax.swing.JFrame {
         Vendedor vendedor = concesionario.buscarVendedor(dniVendedor);
 
         //Primero verificamos que el precio
-        if (precio >= vehiculoActual.getPrecio()) {
-            JOptionPane.showMessageDialog(null, "El precio cel vehiculo a ceder no puede ser menor al precio del vehiculo a comprar", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
+        if (precio <= vehiculoActual.getPrecio()) {
+            JOptionPane.showMessageDialog(null, "El precio del vehiculo a ceder no puede ser menor al precio del vehiculo a comprar", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         //verificamos que el cliente exista
-        if (cliente != null) {
+        if (cliente == null) {
             JOptionPane.showMessageDialog(null, "Cliente no existe", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         //verificamos que el vendedor exista
-        if (vendedor != null) {
+        if (vendedor == null) {
             JOptionPane.showMessageDialog(null, "Vendedor no existe", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
             return;
         }
@@ -1222,6 +1238,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         if (!concesionario.agregarVehiculo(vehiculo)) {
             JOptionPane.showMessageDialog(null, "Matricula del vehiculo ya existe", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
+            return;
         }
         
         // Seteamos que el nuevo vehiculo es un vehiculo usado agregamos el nuevo vehiculo que ha sido cedido
@@ -1367,6 +1384,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblVentasNombreCliente;
     private javax.swing.JLabel lblVentasNombreVendedor;
     private javax.swing.JLabel lblVentasOpcAdiconales;
+    private javax.swing.JLabel lblVentasUsado;
     private javax.swing.JPanel panelAgregar;
     private javax.swing.JPanel panelAgregarCliente;
     private javax.swing.JPanel panelAgregarVehiculo;
