@@ -35,29 +35,29 @@ public class vistaPrincipal extends javax.swing.JFrame {
         dataVehiculo = new Vehiculo[10];
         dataVendedor = new Vendedor[2];
         setLocationRelativeTo(null);
-        
+
     }
 
     // Funcion para data de prueba
     private void dataTest() {
-        for (int i=0; i<dataVehiculo.length; i++) {
+        for (int i = 0; i < dataVehiculo.length; i++) {
             dataVehiculo[i] = new Vehiculo();
         }
-        
-        for (int i=0; i<dataVendedor.length; i++) {
+
+        for (int i = 0; i < dataVendedor.length; i++) {
             dataVendedor[i] = new Vendedor();
         }
-        
+
         this.dataVendedor[0].setDni("1234");
         this.dataVendedor[0].setNombre("Bryan");
         this.dataVendedor[0].setDireccion("B");
         this.dataVendedor[0].setTelefono("g");
-        
+
         this.dataVendedor[1].setDni("0987");
         this.dataVendedor[1].setNombre("BryanB");
         this.dataVendedor[1].setDireccion("B");
         this.dataVendedor[1].setTelefono("g");
-        
+
         for (Vendedor vn : dataVendedor) {
             concesionario.agregarVendedor(vn);
         }
@@ -134,7 +134,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private void initComponents() {
 
         panelConcesionaria = new javax.swing.JPanel();
-        tabAgregar = new javax.swing.JTabbedPane();
+        TabPanelConcesionaria = new javax.swing.JTabbedPane();
         panelAgregar = new javax.swing.JPanel();
         panelAgregarCliente = new javax.swing.JPanel();
         lblNombre = new javax.swing.JLabel();
@@ -181,14 +181,44 @@ public class vistaPrincipal extends javax.swing.JFrame {
         lblDatosModelo = new javax.swing.JLabel();
         lblDatosCilindrada = new javax.swing.JLabel();
         lblDatosPrecio = new javax.swing.JLabel();
+        btnCederVehiculo = new javax.swing.JButton();
         panelDatosVenta = new javax.swing.JPanel();
         lblDniClienteVenta = new javax.swing.JLabel();
         txtDniClienteVenta = new javax.swing.JTextField();
         panelDatosVendedor = new javax.swing.JPanel();
         lblDniVendedorVenta = new javax.swing.JLabel();
         txtDniVendedorVenta = new javax.swing.JTextField();
-        panelClientes = new javax.swing.JPanel();
-        panelVehiculos = new javax.swing.JPanel();
+        panelCederVehiculo = new javax.swing.JPanel();
+        chckCederVehiculo = new javax.swing.JCheckBox();
+        panelDatosVehiculoUsado = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        txtLetraMatriculaCeder = new javax.swing.JTextField();
+        txtNumeroMatriculaCeder = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        txtMarcaCeder = new javax.swing.JTextField();
+        jSeparator1 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtModeloCeder = new javax.swing.JTextField();
+        txtCilindrajeCeder = new javax.swing.JTextField();
+        jSeparator2 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        txtPrecioCeder = new javax.swing.JTextField();
+        panelBuscarVentas = new javax.swing.JPanel();
+        panelBusquedaVentas = new javax.swing.JPanel();
+        lblBuscarDniVendedor = new javax.swing.JLabel();
+        btnBuscarVentas = new javax.swing.JButton();
+        txtBuscarVentaCliente = new javax.swing.JTextField();
+        scrollDatosVentas = new javax.swing.JScrollPane();
+        panelDatosVentaBuscar = new javax.swing.JPanel();
+        lblVentasDniCliente = new javax.swing.JLabel();
+        lblVentasFechaVenta = new javax.swing.JLabel();
+        lblVentasModelo = new javax.swing.JLabel();
+        lblVentasOpcAdiconales = new javax.swing.JLabel();
+        lblVentasNombreCliente = new javax.swing.JLabel();
+        lblVentasNombreVendedor = new javax.swing.JLabel();
+        lblVentasDniVendedor = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -335,9 +365,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addComponent(txtCilindraje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblCilindraje))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblPrecio)
-                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panelAgregarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtPrecio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPrecio))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addComponent(btnAgregarVehiculo)
                 .addContainerGap())
@@ -352,7 +382,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
             .addGroup(panelAgregarLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(panelAgregarCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(panelAgregarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelAgregarLayout.createSequentialGroup()
@@ -372,7 +402,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabAgregar.addTab("Agregar", panelAgregar);
+        TabPanelConcesionaria.addTab("Agregar", panelAgregar);
 
         panelBuscarVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Vehiculo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -472,19 +502,19 @@ public class vistaPrincipal extends javax.swing.JFrame {
         );
 
         lblDatosMatricula.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDatosMatricula.setText("Matricula: ");
+        lblDatosMatricula.setText("Matricula: -");
 
         lblDatosMarca.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDatosMarca.setText("Marca:");
+        lblDatosMarca.setText("Marca: -");
 
         lblDatosModelo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDatosModelo.setText("Modelo: ");
+        lblDatosModelo.setText("Modelo: -");
 
         lblDatosCilindrada.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDatosCilindrada.setText("CC: ");
+        lblDatosCilindrada.setText("CC: -");
 
         lblDatosPrecio.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblDatosPrecio.setText("Precio: ");
+        lblDatosPrecio.setText("Precio: -");
 
         javax.swing.GroupLayout panelDatosVehiculoScrollLayout = new javax.swing.GroupLayout(panelDatosVehiculoScroll);
         panelDatosVehiculoScroll.setLayout(panelDatosVehiculoScrollLayout);
@@ -517,6 +547,16 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         scrollDatosVehiculo.setViewportView(panelDatosVehiculoScroll);
 
+        btnCederVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        btnCederVehiculo.setText("Ceder");
+        btnCederVehiculo.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        btnCederVehiculo.setEnabled(false);
+        btnCederVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCederVehiculoActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panelDatosVehiculoLayout = new javax.swing.GroupLayout(panelDatosVehiculo);
         panelDatosVehiculo.setLayout(panelDatosVehiculoLayout);
         panelDatosVehiculoLayout.setHorizontalGroup(
@@ -525,22 +565,28 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(10, Short.MAX_VALUE)
                 .addComponent(scrollDatosVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnVenderVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnVenderVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnCederVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 193, Short.MAX_VALUE))
                 .addContainerGap())
         );
         panelDatosVehiculoLayout.setVerticalGroup(
             panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosVehiculoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(btnVenderVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(scrollDatosVehiculo)
+                .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnVenderVehiculo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnCederVehiculo)
+                        .addGap(36, 36, 36))
+                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+                        .addGap(15, 15, 15)
+                        .addComponent(scrollDatosVehiculo)))
                 .addContainerGap())
         );
 
@@ -601,6 +647,147 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        panelCederVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Ceder Vehiculo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        chckCederVehiculo.setText("Ceder vehiculo usado");
+        chckCederVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                chckCederVehiculoActionPerformed(evt);
+            }
+        });
+
+        panelDatosVehiculoUsado.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos Vehiculo Usado"));
+        panelDatosVehiculoUsado.setEnabled(false);
+
+        jLabel1.setText("Matricula: ");
+
+        txtLetraMatriculaCeder.setEnabled(false);
+
+        txtNumeroMatriculaCeder.setEnabled(false);
+
+        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        jLabel2.setText("-");
+
+        jLabel3.setText("Marca:");
+
+        txtMarcaCeder.setEnabled(false);
+
+        jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator1.setToolTipText("");
+
+        jLabel6.setText("Modelo:");
+
+        jLabel7.setText("Cilindraje:");
+
+        txtModeloCeder.setEnabled(false);
+
+        txtCilindrajeCeder.setEnabled(false);
+
+        jSeparator2.setOrientation(javax.swing.SwingConstants.VERTICAL);
+        jSeparator2.setToolTipText("");
+
+        jLabel8.setText("Precio:");
+
+        txtPrecioCeder.setEnabled(false);
+
+        javax.swing.GroupLayout panelDatosVehiculoUsadoLayout = new javax.swing.GroupLayout(panelDatosVehiculoUsado);
+        panelDatosVehiculoUsado.setLayout(panelDatosVehiculoUsadoLayout);
+        panelDatosVehiculoUsadoLayout.setHorizontalGroup(
+            panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVehiculoUsadoLayout.createSequentialGroup()
+                .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panelDatosVehiculoUsadoLayout.createSequentialGroup()
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtLetraMatriculaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNumeroMatriculaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelDatosVehiculoUsadoLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addGap(26, 26, 26)
+                        .addComponent(txtMarcaCeder)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosVehiculoUsadoLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(txtModeloCeder, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCilindrajeCeder))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtPrecioCeder, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(47, 47, 47))
+        );
+        panelDatosVehiculoUsadoLayout.setVerticalGroup(
+            panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVehiculoUsadoLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelDatosVehiculoUsadoLayout.createSequentialGroup()
+                        .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(panelDatosVehiculoUsadoLayout.createSequentialGroup()
+                                .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(panelDatosVehiculoUsadoLayout.createSequentialGroup()
+                                        .addGap(3, 3, 3)
+                                        .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel6)
+                                            .addComponent(txtModeloCeder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(txtCilindrajeCeder, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jSeparator1)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosVehiculoUsadoLayout.createSequentialGroup()
+                                        .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel1)
+                                            .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(txtLetraMatriculaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(txtNumeroMatriculaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                            .addComponent(jLabel3)
+                                            .addComponent(txtMarcaCeder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(panelDatosVehiculoUsadoLayout.createSequentialGroup()
+                        .addGroup(panelDatosVehiculoUsadoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(txtPrecioCeder, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel8))
+                        .addContainerGap(40, Short.MAX_VALUE))))
+        );
+
+        javax.swing.GroupLayout panelCederVehiculoLayout = new javax.swing.GroupLayout(panelCederVehiculo);
+        panelCederVehiculo.setLayout(panelCederVehiculoLayout);
+        panelCederVehiculoLayout.setHorizontalGroup(
+            panelCederVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelCederVehiculoLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelCederVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(chckCederVehiculo)
+                    .addComponent(panelDatosVehiculoUsado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(84, 84, 84))
+        );
+        panelCederVehiculoLayout.setVerticalGroup(
+            panelCederVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelCederVehiculoLayout.createSequentialGroup()
+                .addComponent(chckCederVehiculo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelDatosVehiculoUsado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout panelVenderLayout = new javax.swing.GroupLayout(panelVender);
         panelVender.setLayout(panelVenderLayout);
         panelVenderLayout.setHorizontalGroup(
@@ -608,11 +795,14 @@ public class vistaPrincipal extends javax.swing.JFrame {
             .addGroup(panelVenderLayout.createSequentialGroup()
                 .addGap(12, 12, 12)
                 .addGroup(panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelBuscarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelDatosVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(panelDatosVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                    .addComponent(panelCederVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(panelVenderLayout.createSequentialGroup()
+                        .addGroup(panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(panelBuscarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(panelDatosVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(panelDatosVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
         panelVenderLayout.setVerticalGroup(
             panelVenderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -624,51 +814,145 @@ public class vistaPrincipal extends javax.swing.JFrame {
                         .addComponent(panelBuscarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(panelDatosVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(panelCederVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
 
-        tabAgregar.addTab("Vender", panelVender);
+        TabPanelConcesionaria.addTab("Vender", panelVender);
 
-        javax.swing.GroupLayout panelClientesLayout = new javax.swing.GroupLayout(panelClientes);
-        panelClientes.setLayout(panelClientesLayout);
-        panelClientesLayout.setHorizontalGroup(
-            panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 793, Short.MAX_VALUE)
+        panelBusquedaVentas.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Ventas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
+
+        lblBuscarDniVendedor.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        lblBuscarDniVendedor.setText("DNI Cliente");
+
+        btnBuscarVentas.setText("Buscar");
+        btnBuscarVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarVentasActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelBusquedaVentasLayout = new javax.swing.GroupLayout(panelBusquedaVentas);
+        panelBusquedaVentas.setLayout(panelBusquedaVentasLayout);
+        panelBusquedaVentasLayout.setHorizontalGroup(
+            panelBusquedaVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBusquedaVentasLayout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(panelBusquedaVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(lblBuscarDniVendedor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(txtBuscarVentaCliente)
+                    .addComponent(btnBuscarVentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(47, 47, 47))
         );
-        panelClientesLayout.setVerticalGroup(
-            panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 325, Short.MAX_VALUE)
+        panelBusquedaVentasLayout.setVerticalGroup(
+            panelBusquedaVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBusquedaVentasLayout.createSequentialGroup()
+                .addComponent(lblBuscarDniVendedor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtBuscarVentaCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnBuscarVentas)
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
-        tabAgregar.addTab("Vehiculo", panelClientes);
+        scrollDatosVentas.setBorder(javax.swing.BorderFactory.createTitledBorder("Datos de Venta"));
 
-        javax.swing.GroupLayout panelVehiculosLayout = new javax.swing.GroupLayout(panelVehiculos);
-        panelVehiculos.setLayout(panelVehiculosLayout);
-        panelVehiculosLayout.setHorizontalGroup(
-            panelVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 793, Short.MAX_VALUE)
+        lblVentasDniCliente.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblVentasDniCliente.setText("Dni Cliente: -");
+
+        lblVentasFechaVenta.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblVentasFechaVenta.setText("Fecha venta: -");
+
+        lblVentasModelo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblVentasModelo.setText("Modelo: -");
+
+        lblVentasOpcAdiconales.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblVentasOpcAdiconales.setText("Opc Adicionales: -");
+
+        lblVentasNombreCliente.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblVentasNombreCliente.setText("Cliente: -");
+
+        lblVentasNombreVendedor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblVentasNombreVendedor.setText("Vendedor: -");
+
+        lblVentasDniVendedor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblVentasDniVendedor.setText("Dni Vendedor: -");
+
+        javax.swing.GroupLayout panelDatosVentaBuscarLayout = new javax.swing.GroupLayout(panelDatosVentaBuscar);
+        panelDatosVentaBuscar.setLayout(panelDatosVentaBuscarLayout);
+        panelDatosVentaBuscarLayout.setHorizontalGroup(
+            panelDatosVentaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVentaBuscarLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelDatosVentaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblVentasDniCliente)
+                    .addComponent(lblVentasOpcAdiconales)
+                    .addComponent(lblVentasModelo)
+                    .addComponent(lblVentasFechaVenta)
+                    .addComponent(lblVentasNombreCliente)
+                    .addComponent(lblVentasDniVendedor)
+                    .addComponent(lblVentasNombreVendedor))
+                .addContainerGap(341, Short.MAX_VALUE))
         );
-        panelVehiculosLayout.setVerticalGroup(
-            panelVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 325, Short.MAX_VALUE)
+        panelDatosVentaBuscarLayout.setVerticalGroup(
+            panelDatosVentaBuscarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelDatosVentaBuscarLayout.createSequentialGroup()
+                .addComponent(lblVentasDniCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblVentasNombreCliente)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblVentasDniVendedor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblVentasNombreVendedor)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblVentasFechaVenta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblVentasModelo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblVentasOpcAdiconales)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        tabAgregar.addTab("Cliente", panelVehiculos);
+        lblVentasFechaVenta.getAccessibleContext().setAccessibleName("Fecha Venta: -");
+
+        scrollDatosVentas.setViewportView(panelDatosVentaBuscar);
+
+        javax.swing.GroupLayout panelBuscarVentasLayout = new javax.swing.GroupLayout(panelBuscarVentas);
+        panelBuscarVentas.setLayout(panelBuscarVentasLayout);
+        panelBuscarVentasLayout.setHorizontalGroup(
+            panelBuscarVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscarVentasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelBusquedaVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(scrollDatosVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 550, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(51, Short.MAX_VALUE))
+        );
+        panelBuscarVentasLayout.setVerticalGroup(
+            panelBuscarVentasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panelBuscarVentasLayout.createSequentialGroup()
+                .addComponent(panelBusquedaVentas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(scrollDatosVentas, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
+        );
+
+        TabPanelConcesionaria.addTab("Buscar Ventas", panelBuscarVentas);
 
         javax.swing.GroupLayout panelConcesionariaLayout = new javax.swing.GroupLayout(panelConcesionaria);
         panelConcesionaria.setLayout(panelConcesionariaLayout);
         panelConcesionariaLayout.setHorizontalGroup(
             panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelConcesionariaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(tabAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(10, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelConcesionariaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(TabPanelConcesionaria, javax.swing.GroupLayout.PREFERRED_SIZE, 806, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27))
         );
         panelConcesionariaLayout.setVerticalGroup(
             panelConcesionariaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelConcesionariaLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(tabAgregar)
+                .addComponent(TabPanelConcesionaria)
                 .addContainerGap())
         );
 
@@ -676,7 +960,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelConcesionaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(panelConcesionaria, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -686,69 +972,101 @@ public class vistaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnVenderVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderVehiculoActionPerformed
-        //Verificamos que exista un vehiculo vigente pata vender
-        if(vehiculoActual==null){
-            JOptionPane.showMessageDialog(null, "Aun no has buscado un vehiculo", "Vender Vehiculo",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-        
-        if (txtDniClienteVenta.getText().equals("") || txtDniVendedorVenta.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Dni de clientes y Vendedor deben llenarse", "Vender Vehiculo",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-        
-        String dniCliente = txtDniClienteVenta.getText();
-        String dniVendedor = txtDniVendedorVenta.getText();
-
-        Cliente cliente = concesionario.buscarCliente(dniCliente);
-        Vendedor vendedor = concesionario.buscarVendedor(dniVendedor);
-        
-        if(cliente!=null){
-            if(vendedor!=null){
-                Venta venta = new Venta(cliente, vehiculoActual, vendedor);
-        
-                concesionario.agregarVenta(venta);
-                calculado = false;
-                System.out.println(venta.getId());
-                JOptionPane.showMessageDialog(null, "Vehiculo Vendido Correctamente", "Vender Nuevo Vehiculo",
-                        JOptionPane.INFORMATION_MESSAGE);   
-            }else{
-            JOptionPane.showMessageDialog(null, "Vendedor no existe", "Vender Vehiculo",
-                    JOptionPane.ERROR_MESSAGE);
-            }        
-        }else{
-            JOptionPane.showMessageDialog(null, "Cliente no existe", "Vender Vehiculo",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-        
-    }//GEN-LAST:event_btnVenderVehiculoActionPerformed
-
-    private void btnCalcularPrecioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCalcularPrecioActionPerformed
+    private void btnCalcularPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularPrecioActionPerformed
         int precio = vehiculoActual.getPrecio(); //se trae el vehiculo que dio resultado en la busqueda y trabajar con el
         if (calculado) {
             JOptionPane.showMessageDialog(null, "Ya el precio ha sido calculado", "Calcular adicionales",
                     JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //si el check button esta seleccionado, se le aumenta el precio
         if (this.chckAireAcondicionado.isSelected()) {
-            vehiculoActual.setPrecio(precio+=500000);
+            vehiculoActual.setPrecio(precio += 500000);
             calculado = true; // se actualiza la bandera para que no sea calculado mas de una vez
         }
+
         //Si el check button esta seleccionado, se le aumenta el precio
-        if (this.chckMetalizado.isSelected()){
-            vehiculoActual.setPrecio(precio+=800000);
+        if (this.chckMetalizado.isSelected()) {
+            vehiculoActual.setPrecio(precio += 800000);
             calculado = true; //Se actualiza la bandera para que no calcule mas de una vez
         }
-        
-        this.lblDatosPrecio.setText("Precio: "+vehiculoActual.getPrecio());
-    }// GEN-LAST:event_btnCalcularPrecioActionPerformed
 
-    private void btnAgregarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAgregarVehiculoActionPerformed
-              
+        this.lblDatosPrecio.setText("Precio: " + concesionario.formatoValor(vehiculoActual.getPrecio()));
+    }//GEN-LAST:event_btnCalcularPrecioActionPerformed
+
+    private void btnVenderVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderVehiculoActionPerformed
+        //Verificamos que exista un vehiculo vigente pata vender
+        if (vehiculoActual == null) {
+            JOptionPane.showMessageDialog(null, "Aun no has buscado un vehiculo", "Vender Vehiculo",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (txtDniClienteVenta.getText().equals("") || txtDniVendedorVenta.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Dni de clientes y Vendedor deben llenarse", "Vender Vehiculo",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+        String dniCliente = txtDniClienteVenta.getText();
+        String dniVendedor = txtDniVendedorVenta.getText();
+
+        Cliente cliente = concesionario.buscarCliente(dniCliente);
+        Vendedor vendedor = concesionario.buscarVendedor(dniVendedor);
+
+        if (cliente != null) {
+            if (vendedor != null) {
+                Venta venta = new Venta(cliente, vehiculoActual, vendedor);
+
+                concesionario.agregarVenta(venta);
+                calculado = false;
+                vehiculoActual = null;
+                JOptionPane.showMessageDialog(null, "Vehiculo Vendido Correctamente", "Vender Nuevo Vehiculo",
+                        JOptionPane.INFORMATION_MESSAGE);
+                //Limpieamos los campos una vez realizada la venta
+                txtDniClienteVenta.setText("");
+                txtDniVendedorVenta.setText("");
+                txtNumerosMatricula.setText("");
+                txtLetrasMatricula.setText("");
+                chckAireAcondicionado.setSelected(false);
+                chckMetalizado.setSelected(false);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Vendedor no existe", "Vender Vehiculo",
+                        JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Cliente no existe", "Vender Vehiculo",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+
+    }//GEN-LAST:event_btnVenderVehiculoActionPerformed
+
+    private void btnBuscarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarMatriculaActionPerformed
+        // Se Verifica que los campos esten vacios para evitar enviar datos vacios
+        if (txtLetrasMatricula.getText().equals("") || txtNumerosMatricula.getText().equals("")) {
+            return;
+        }
+
+        // Se obtiene los datos del campo y se guardan en una variable para mejor manejo
+        String matricula = txtLetrasMatricula.getText() + "-" + txtNumerosMatricula.getText();
+
+        Vehiculo vehiculo = concesionario.buscarVehiculo(matricula);
+
+        if (vehiculo != null) {
+            this.lblDatosMatricula.setText("Matricula: " + vehiculo.getMatricula());
+            this.lblDatosMarca.setText("Marca: " + vehiculo.getMarca());
+            this.lblDatosModelo.setText("Modelo: " + vehiculo.getModelo());
+            this.lblDatosCilindrada.setText("CC: " + vehiculo.getCilindrada());
+            this.lblDatosPrecio.setText("Precio: " + concesionario.formatoValor(vehiculo.getPrecio()));
+            this.vehiculoActual = vehiculo; // se Guarda en una variable global el vehiculo actual para operarlo despues
+        } else {
+            JOptionPane.showMessageDialog(null, "Matricula no encontrada", "Buscar Matricula",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnBuscarMatriculaActionPerformed
+
+    private void btnAgregarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVehiculoActionPerformed
         // Condicional para evitar que el codigo se ejecite con los campos vacios
         if (txtMatriculaLetras.getText().equals("") || txtMatriculaNumero.getText().equals("")
                 || txtMarca.getText().equals("") || txtModelo.getText().equals("")
@@ -756,7 +1074,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
             dataTest(); // Agregar data de prueba
             return;
         }
-        
+
         // Se obtienen todos los datos de cada campo y se guardan en variables para
         // mejor manejo
         String matricula = txtMatriculaLetras.getText() + "-" + txtMatriculaNumero.getText();
@@ -764,7 +1082,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         String modelo = txtModelo.getText();
         String cilindraje = txtCilindraje.getText();
         int precio = Integer.parseInt(txtPrecio.getText()); // Se convierte el valor del campo en un integer para operar
-                                                            // con el
+        // con el
         // Se construye un objeto de tipo vehiculo para proceder a guardar
         Vehiculo vehiculo = new Vehiculo(matricula, marca, modelo, cilindraje, precio);
 
@@ -787,9 +1105,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Vehiculo ya existe.", "Vehiculo nuevo Cliente.",
                     JOptionPane.ERROR_MESSAGE);
         }
-    }// GEN-LAST:event_btnAgregarVehiculoActionPerformed
+    }//GEN-LAST:event_btnAgregarVehiculoActionPerformed
 
-    private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnAgregarClienteActionPerformed
+    private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
         // Condicional para evitar que el codigo se ejecite con los campos vacios
         if (txtNombre.getText().equals("") || txtDni.getText().equals("") || txtDireccion.getText().equals("")
                 || txtTelefono.getText().equals("")) {
@@ -820,32 +1138,138 @@ public class vistaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Cliente ya existe.", "Agregar nuevo Cliente.",
                     JOptionPane.ERROR_MESSAGE);
         }
-    }// GEN-LAST:event_btnAgregarClienteActionPerformed
+    }//GEN-LAST:event_btnAgregarClienteActionPerformed
 
-    private void btnBuscarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnBuscarMatriculaActionPerformed
-        // Se Verifica que los campos esten vacios para evitar enviar datos vacios
-        if (txtLetrasMatricula.getText().equals("") || txtNumerosMatricula.getText().equals("")) {
+    private void btnBuscarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVentasActionPerformed
+        //Comprbamos que el campo no este vacio
+        if (txtBuscarVentaCliente.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Debes llenar el campo", "Buscar Venta",
+                    JOptionPane.ERROR_MESSAGE);
             return;
         }
 
-        // Se obtiene los datos del campo y se guardan en una variable para mejor manejo
-        String matricula = txtLetrasMatricula.getText() + "-" + txtNumerosMatricula.getText();
+        String dniCliente = txtBuscarVentaCliente.getText();
 
-        Vehiculo vehiculo = concesionario.buscarVehiculo(matricula);
+        //Buscamos el cliente dentro del registro de ventas
+        Venta venta = concesionario.buscarVentaId(dniCliente);
 
-        if (vehiculo != null) {
-            this.lblDatosMatricula.setText("Matricula: " + vehiculo.getMatricula());
-            this.lblDatosMarca.setText("Marca: " + vehiculo.getMarca());
-            this.lblDatosModelo.setText("Modelo: " + vehiculo.getModelo());
-            this.lblDatosCilindrada.setText("CC: " + vehiculo.getCilindrada());
-            this.lblDatosPrecio.setText("Precio: " + vehiculo.getPrecio());
-            this.vehiculoActual = vehiculo; // se Guarda en una variable global el vehiculo actual para operarlo despues
+        // si el resultado de la busqueda nos trae algo imprimimos en los label
+        if (venta != null) {
+            lblVentasDniCliente.setText("DNI Cliente: " + venta.getCliente().getDni());
+            lblVentasNombreCliente.setText("Cliente: " + venta.getCliente().getNombre());
+            lblVentasDniVendedor.setText("DNI Vendedor: " + venta.getVendedor().getDni());
+            lblVentasNombreVendedor.setText("Vendedor: " + venta.getVendedor().getNombre());
+            lblVentasFechaVenta.setText("Fecha Venta: " + venta.getFecha());
+            lblVentasModelo.setText("Modelo: " + venta.getVehiculo().getModelo());
+            //lblVentasDniCliente.setText("Opc Adicionales: " + venta.getCliente().getDni());
+
+            txtBuscarVentaCliente.setText("");
         } else {
-            JOptionPane.showMessageDialog(null, "Matricula no encontrada", "Buscar Matricula",
+            JOptionPane.showMessageDialog(null, "El DNI" + dniCliente + " No ha realizado ninguna compra", "Buscar Venta",
+                    JOptionPane.ERROR_MESSAGE);
+            txtBuscarVentaCliente.setText("");
+        }
+    }//GEN-LAST:event_btnBuscarVentasActionPerformed
+
+    private void btnCederVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCederVehiculoActionPerformed
+        //Verificamos que exista un vehiculo vigente pata vender
+        if (vehiculoActual == null) {
+            JOptionPane.showMessageDialog(null, "Aun no has buscado un vehiculo", "Vender Vehiculo",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (txtDniClienteVenta.getText().equals("") || txtDniVendedorVenta.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Dni de clientes y Vendedor deben llenarse", "Vender Vehiculo",
                     JOptionPane.ERROR_MESSAGE);
         }
 
-    }// GEN-LAST:event_btnBuscarMatriculaActionPerformed
+        //Taemos los datos de los campos de DNI de cliente y Vendedor
+        String dniCliente = txtDniClienteVenta.getText();
+        String dniVendedor = txtDniVendedorVenta.getText();
+
+        //Traemos los datos del vehiculo que se cedera
+        String matricula = txtLetraMatriculaCeder.getText() + "-" + txtNumeroMatriculaCeder.getText();
+        String marca = txtMarcaCeder.getText();
+        String modelo = txtModeloCeder.getText();
+        int precio = Integer.parseInt(txtPrecioCeder.getText());
+        String cilindraje = txtCilindrajeCeder.getText();
+
+        //Buscamos a el Cliente y al Vendedor para Validar si existen
+        Cliente cliente = concesionario.buscarCliente(dniCliente);
+        Vendedor vendedor = concesionario.buscarVendedor(dniVendedor);
+
+        //Primero verificamos que el precio
+        if (precio >= vehiculoActual.getPrecio()) {
+            JOptionPane.showMessageDialog(null, "El precio cel vehiculo a ceder no puede ser menor al precio del vehiculo a comprar", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //verificamos que el cliente exista
+        if (cliente != null) {
+            JOptionPane.showMessageDialog(null, "Cliente no existe", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        //verificamos que el vendedor exista
+        if (vendedor != null) {
+            JOptionPane.showMessageDialog(null, "Vendedor no existe", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        //Construimos un nuevo vehiculo
+        Vehiculo vehiculo = new Vehiculo(matricula, marca, modelo, cilindraje, precio);
+
+        if (!concesionario.agregarVehiculo(vehiculo)) {
+            JOptionPane.showMessageDialog(null, "Matricula del vehiculo ya existe", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
+        }
+        
+        // Seteamos que el nuevo vehiculo es un vehiculo usado agregamos el nuevo vehiculo que ha sido cedido
+        vehiculo.setUsado(true);
+        concesionario.agregarVehiculo(vehiculo);
+        
+        //Seteamos que la venta fue por cesion de un vehiculo y creamos la nueva venta
+        Venta venta = new Venta(cliente, vehiculoActual, vendedor);
+        venta.setCedido(true);
+            
+        concesionario.agregarVenta(venta);
+        
+        //mensaje de confirmacion
+        JOptionPane.showMessageDialog(null, "Vehiculo Vendido Correctamente", "Vender Nuevo Vehiculo", JOptionPane.INFORMATION_MESSAGE);
+        
+        //Limpieamos los campos una vez realizada la venta
+        txtDniClienteVenta.setText("");
+        txtDniVendedorVenta.setText("");
+        txtNumerosMatricula.setText("");
+        txtLetrasMatricula.setText("");
+        chckAireAcondicionado.setSelected(false);
+        chckMetalizado.setSelected(false);
+        
+        //limpiamos variables temporales
+        calculado = false;
+        vehiculoActual = null;
+
+        //Limpiamos campos de label una vez la venta ha sido realizada
+        this.lblDatosMatricula.setText("Matricula: -");
+        this.lblDatosMarca.setText("Marca: -");
+        this.lblDatosModelo.setText("Modelo: -");
+        this.lblDatosCilindrada.setText("CC: -");
+        this.lblDatosPrecio.setText("Precio: -");
+    }//GEN-LAST:event_btnCederVehiculoActionPerformed
+
+    private void chckCederVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chckCederVehiculoActionPerformed
+        boolean estado = chckCederVehiculo.isSelected();
+
+        btnVenderVehiculo.setEnabled(!estado);
+        btnCederVehiculo.setEnabled(estado);
+        panelDatosVehiculoUsado.setEnabled(estado);
+        txtLetraMatriculaCeder.setEnabled(estado);
+        txtNumeroMatriculaCeder.setEnabled(estado);
+        txtMarcaCeder.setEnabled(estado);
+        txtModeloCeder.setEnabled(estado);
+        txtPrecioCeder.setEnabled(estado);
+        txtCilindrajeCeder.setEnabled(estado);
+    }//GEN-LAST:event_chckCederVehiculoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -896,15 +1320,28 @@ public class vistaPrincipal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTabbedPane TabPanelConcesionaria;
     private javax.swing.JButton btnAgregarCliente;
     private javax.swing.JButton btnAgregarVehiculo;
     private javax.swing.JButton btnBuscarMatricula;
+    private javax.swing.JButton btnBuscarVentas;
     private javax.swing.JButton btnCalcularPrecio;
+    private javax.swing.JButton btnCederVehiculo;
     private javax.swing.JButton btnVenderVehiculo;
     private javax.swing.JCheckBox chckAireAcondicionado;
+    private javax.swing.JCheckBox chckCederVehiculo;
     private javax.swing.JCheckBox chckMetalizado;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JSeparator jSeparator1;
+    private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JLabel lblBuscarDniVendedor;
     private javax.swing.JLabel lblCantidadVehiculosRegistrados;
     private javax.swing.JLabel lblCilindraje;
     private javax.swing.JLabel lblDatosCilindrada;
@@ -923,34 +1360,51 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTituloBusvarVehiculo;
+    private javax.swing.JLabel lblVentasDniCliente;
+    private javax.swing.JLabel lblVentasDniVendedor;
+    private javax.swing.JLabel lblVentasFechaVenta;
+    private javax.swing.JLabel lblVentasModelo;
+    private javax.swing.JLabel lblVentasNombreCliente;
+    private javax.swing.JLabel lblVentasNombreVendedor;
+    private javax.swing.JLabel lblVentasOpcAdiconales;
     private javax.swing.JPanel panelAgregar;
     private javax.swing.JPanel panelAgregarCliente;
     private javax.swing.JPanel panelAgregarVehiculo;
     private javax.swing.JPanel panelBuscarVehiculo;
-    private javax.swing.JPanel panelClientes;
+    private javax.swing.JPanel panelBuscarVentas;
+    private javax.swing.JPanel panelBusquedaVentas;
+    private javax.swing.JPanel panelCederVehiculo;
     private javax.swing.JPanel panelConcesionaria;
     private javax.swing.JPanel panelDatosVehiculo;
     private javax.swing.JPanel panelDatosVehiculoScroll;
+    private javax.swing.JPanel panelDatosVehiculoUsado;
     private javax.swing.JPanel panelDatosVendedor;
     private javax.swing.JPanel panelDatosVenta;
+    private javax.swing.JPanel panelDatosVentaBuscar;
     private javax.swing.JPanel panelOpcAdiconalesl1;
-    private javax.swing.JPanel panelVehiculos;
     private javax.swing.JPanel panelVender;
     private javax.swing.JScrollPane scrollDatosVehiculo;
-    private javax.swing.JTabbedPane tabAgregar;
+    private javax.swing.JScrollPane scrollDatosVentas;
+    private javax.swing.JTextField txtBuscarVentaCliente;
     private javax.swing.JTextField txtCilindraje;
+    private javax.swing.JTextField txtCilindrajeCeder;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtDni;
     private javax.swing.JTextField txtDniClienteVenta;
     private javax.swing.JTextField txtDniVendedorVenta;
+    private javax.swing.JTextField txtLetraMatriculaCeder;
     private javax.swing.JTextField txtLetrasMatricula;
     private javax.swing.JTextField txtMarca;
+    private javax.swing.JTextField txtMarcaCeder;
     private javax.swing.JTextField txtMatriculaLetras;
     private javax.swing.JTextField txtMatriculaNumero;
     private javax.swing.JTextField txtModelo;
+    private javax.swing.JTextField txtModeloCeder;
     private javax.swing.JTextField txtNombre;
+    private javax.swing.JTextField txtNumeroMatriculaCeder;
     private javax.swing.JTextField txtNumerosMatricula;
     private javax.swing.JTextField txtPrecio;
+    private javax.swing.JTextField txtPrecioCeder;
     private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }
