@@ -9,6 +9,8 @@ import javax.swing.JOptionPane;
 import logica.Cliente;
 import logica.Concesionario;
 import logica.Vehiculo;
+import logica.Vendedor;
+import logica.Venta;
 
 /**
  *
@@ -23,20 +25,41 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private boolean calculado;
     private Vehiculo vehiculoActual;
     private Vehiculo[] dataVehiculo;
+    private Vendedor[] dataVendedor;
 
     public vistaPrincipal() {
         initComponents();
         vehiculoActual = new Vehiculo();
         concesionario = new Concesionario();
-        setLocationRelativeTo(null);
         calculado = false;
         dataVehiculo = new Vehiculo[10];
+        dataVendedor = new Vendedor[2];
+        setLocationRelativeTo(null);
+        
     }
 
     // Funcion para data de prueba
-    public void dataTest() {
+    private void dataTest() {
         for (int i=0; i<dataVehiculo.length; i++) {
             dataVehiculo[i] = new Vehiculo();
+        }
+        
+        for (int i=0; i<dataVendedor.length; i++) {
+            dataVendedor[i] = new Vendedor();
+        }
+        
+        this.dataVendedor[0].setDni("1234");
+        this.dataVendedor[0].setNombre("Bryan");
+        this.dataVendedor[0].setDireccion("B");
+        this.dataVendedor[0].setTelefono("g");
+        
+        this.dataVendedor[1].setDni("0987");
+        this.dataVendedor[1].setNombre("BryanB");
+        this.dataVendedor[1].setDireccion("B");
+        this.dataVendedor[1].setTelefono("g");
+        
+        for (Vendedor vn : dataVendedor) {
+            concesionario.agregarVendedor(vn);
         }
 
         this.dataVehiculo[0].setMatricula("AAA-123");
@@ -140,7 +163,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         lblCantidadVehiculosRegistrados = new javax.swing.JLabel();
         panelVender = new javax.swing.JPanel();
         panelBuscarVehiculo = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
+        lblTituloBusvarVehiculo = new javax.swing.JLabel();
         txtLetrasMatricula = new javax.swing.JTextField();
         txtNumerosMatricula = new javax.swing.JTextField();
         btnBuscarMatricula = new javax.swing.JButton();
@@ -159,13 +182,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
         lblDatosCilindrada = new javax.swing.JLabel();
         lblDatosPrecio = new javax.swing.JLabel();
         panelDatosVenta = new javax.swing.JPanel();
-        lblDniCliente = new javax.swing.JLabel();
+        lblDniClienteVenta = new javax.swing.JLabel();
+        txtDniClienteVenta = new javax.swing.JTextField();
         panelDatosVendedor = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        txtDniVendedor = new javax.swing.JTextField();
-        txtNombreVendedor = new javax.swing.JTextField();
-        txtDniCliente = new javax.swing.JTextField();
+        lblDniVendedorVenta = new javax.swing.JLabel();
+        txtDniVendedorVenta = new javax.swing.JTextField();
         panelClientes = new javax.swing.JPanel();
         panelVehiculos = new javax.swing.JPanel();
 
@@ -348,15 +369,15 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addComponent(panelAgregarVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblCantidadVehiculosRegistrados)
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabAgregar.addTab("Agregar", panelAgregar);
 
         panelBuscarVehiculo.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Buscar Vehiculo", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        jLabel1.setText("Ingrese Matricula");
+        lblTituloBusvarVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblTituloBusvarVehiculo.setText("Ingrese Matricula");
 
         btnBuscarMatricula.setText("Buscar");
         btnBuscarMatricula.addActionListener(new java.awt.event.ActionListener() {
@@ -375,7 +396,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
             .addGroup(panelBuscarVehiculoLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelBuscarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1)
+                    .addComponent(lblTituloBusvarVehiculo)
                     .addGroup(panelBuscarVehiculoLayout.createSequentialGroup()
                         .addComponent(txtLetrasMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -390,7 +411,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
             panelBuscarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelBuscarVehiculoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1)
+                .addComponent(lblTituloBusvarVehiculo)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelBuscarVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtLetrasMatricula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -404,6 +425,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         btnVenderVehiculo.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
         btnVenderVehiculo.setText("Vender");
+        btnVenderVehiculo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVenderVehiculoActionPerformed(evt);
+            }
+        });
 
         panelOpcAdiconalesl1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Opciones Adicionales", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
@@ -507,30 +533,25 @@ public class vistaPrincipal extends javax.swing.JFrame {
         panelDatosVehiculoLayout.setVerticalGroup(
             panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelDatosVehiculoLayout.createSequentialGroup()
-                .addGroup(panelDatosVehiculoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(52, 52, 52)
-                        .addComponent(btnVenderVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(scrollDatosVehiculo, javax.swing.GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)))
+                .addContainerGap()
+                .addComponent(panelOpcAdiconalesl1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnVenderVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(panelDatosVehiculoLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(scrollDatosVehiculo)
                 .addContainerGap())
         );
 
         panelDatosVenta.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos de Venta", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        lblDniCliente.setText("DNI Cliente:");
+        lblDniClienteVenta.setText("DNI Cliente:");
 
         panelDatosVendedor.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Datos Vendedor", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION));
 
-        jLabel2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel2.setText("DNI Vendedor: ");
-
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Nombre:");
+        lblDniVendedorVenta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        lblDniVendedorVenta.setText("DNI Vendedor: ");
 
         javax.swing.GroupLayout panelDatosVendedorLayout = new javax.swing.GroupLayout(panelDatosVendedor);
         panelDatosVendedor.setLayout(panelDatosVendedorLayout);
@@ -538,15 +559,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
             panelDatosVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDatosVendedorLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(panelDatosVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelDatosVendedorLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDniVendedor))
-                    .addGroup(panelDatosVendedorLayout.createSequentialGroup()
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(21, 21, 21)
-                        .addComponent(txtNombreVendedor)))
+                .addComponent(lblDniVendedorVenta)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDniVendedorVenta)
                 .addContainerGap())
         );
         panelDatosVendedorLayout.setVerticalGroup(
@@ -554,13 +569,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
             .addGroup(panelDatosVendedorLayout.createSequentialGroup()
                 .addGap(17, 17, 17)
                 .addGroup(panelDatosVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtDniVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelDatosVendedorLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addComponent(txtNombreVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(20, Short.MAX_VALUE))
+                    .addComponent(lblDniVendedorVenta)
+                    .addComponent(txtDniVendedorVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelDatosVentaLayout = new javax.swing.GroupLayout(panelDatosVenta);
@@ -571,9 +582,9 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(panelDatosVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelDatosVentaLayout.createSequentialGroup()
-                        .addComponent(lblDniCliente)
+                        .addComponent(lblDniClienteVenta)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtDniCliente, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtDniClienteVenta, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(panelDatosVendedor, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -583,11 +594,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
             .addGroup(panelDatosVentaLayout.createSequentialGroup()
                 .addGap(13, 13, 13)
                 .addGroup(panelDatosVentaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblDniCliente)
-                    .addComponent(txtDniCliente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblDniClienteVenta)
+                    .addComponent(txtDniClienteVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelDatosVendedor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout panelVenderLayout = new javax.swing.GroupLayout(panelVender);
@@ -612,8 +623,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addGroup(panelVenderLayout.createSequentialGroup()
                         .addComponent(panelBuscarVehiculo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(panelDatosVenta, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                        .addComponent(panelDatosVenta, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         tabAgregar.addTab("Vender", panelVender);
@@ -626,7 +637,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         );
         panelClientesLayout.setVerticalGroup(
             panelClientesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 361, Short.MAX_VALUE)
+            .addGap(0, 325, Short.MAX_VALUE)
         );
 
         tabAgregar.addTab("Vehiculo", panelClientes);
@@ -639,7 +650,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         );
         panelVehiculosLayout.setVerticalGroup(
             panelVehiculosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 361, Short.MAX_VALUE)
+            .addGap(0, 325, Short.MAX_VALUE)
         );
 
         tabAgregar.addTab("Cliente", panelVehiculos);
@@ -674,6 +685,45 @@ public class vistaPrincipal extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnVenderVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderVehiculoActionPerformed
+        //Verificamos que exista un vehiculo vigente pata vender
+        if(vehiculoActual==null){
+            JOptionPane.showMessageDialog(null, "Aun no has buscado un vehiculo", "Vender Vehiculo",
+                    JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        
+        if (txtDniClienteVenta.getText().equals("") || txtDniVendedorVenta.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Dni de clientes y Vendedor deben llenarse", "Vender Vehiculo",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        
+        String dniCliente = txtDniClienteVenta.getText();
+        String dniVendedor = txtDniVendedorVenta.getText();
+
+        Cliente cliente = concesionario.buscarCliente(dniCliente);
+        Vendedor vendedor = concesionario.buscarVendedor(dniVendedor);
+        
+        if(cliente!=null){
+            if(vendedor!=null){
+                Venta venta = new Venta(cliente, vehiculoActual, vendedor);
+        
+                concesionario.agregarVenta(venta);
+                calculado = false;
+                System.out.println(venta.getId());
+                JOptionPane.showMessageDialog(null, "Vehiculo Vendido Correctamente", "Vender Nuevo Vehiculo",
+                        JOptionPane.INFORMATION_MESSAGE);   
+            }else{
+            JOptionPane.showMessageDialog(null, "Vendedor no existe", "Vender Vehiculo",
+                    JOptionPane.ERROR_MESSAGE);
+            }        
+        }else{
+            JOptionPane.showMessageDialog(null, "Cliente no existe", "Vender Vehiculo",
+                    JOptionPane.ERROR_MESSAGE);
+        }
+        
+    }//GEN-LAST:event_btnVenderVehiculoActionPerformed
 
     private void btnCalcularPrecioActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btnCalcularPrecioActionPerformed
         int precio = vehiculoActual.getPrecio(); //se trae el vehiculo que dio resultado en la busqueda y trabajar con el
@@ -853,9 +903,6 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JButton btnVenderVehiculo;
     private javax.swing.JCheckBox chckAireAcondicionado;
     private javax.swing.JCheckBox chckMetalizado;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel lblCantidadVehiculosRegistrados;
@@ -867,13 +914,15 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblDatosPrecio;
     private javax.swing.JLabel lblDireccion;
     private javax.swing.JLabel lblDni;
-    private javax.swing.JLabel lblDniCliente;
+    private javax.swing.JLabel lblDniClienteVenta;
+    private javax.swing.JLabel lblDniVendedorVenta;
     private javax.swing.JLabel lblMarca;
     private javax.swing.JLabel lblMatricula;
     private javax.swing.JLabel lblModelo;
     private javax.swing.JLabel lblNombre;
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblTelefono;
+    private javax.swing.JLabel lblTituloBusvarVehiculo;
     private javax.swing.JPanel panelAgregar;
     private javax.swing.JPanel panelAgregarCliente;
     private javax.swing.JPanel panelAgregarVehiculo;
@@ -892,15 +941,14 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JTextField txtCilindraje;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtDni;
-    private javax.swing.JTextField txtDniCliente;
-    private javax.swing.JTextField txtDniVendedor;
+    private javax.swing.JTextField txtDniClienteVenta;
+    private javax.swing.JTextField txtDniVendedorVenta;
     private javax.swing.JTextField txtLetrasMatricula;
     private javax.swing.JTextField txtMarca;
     private javax.swing.JTextField txtMatriculaLetras;
     private javax.swing.JTextField txtMatriculaNumero;
     private javax.swing.JTextField txtModelo;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombreVendedor;
     private javax.swing.JTextField txtNumerosMatricula;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtTelefono;
