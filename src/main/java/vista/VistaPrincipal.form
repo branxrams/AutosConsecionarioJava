@@ -674,9 +674,9 @@
                           <Group type="102" alignment="1" attributes="0">
                               <Group type="103" groupAlignment="1" attributes="0">
                                   <Group type="102" alignment="1" attributes="0">
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace max="32767" attributes="0"/>
                                       <Component id="panelOpcAdiconalesl1" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
+                                      <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                                       <Component id="btnVenderVehiculo" min="-2" max="-2" attributes="0"/>
                                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                                       <Component id="btnCederVehiculo" min="-2" max="-2" attributes="0"/>
@@ -721,12 +721,7 @@
                                       <Component id="chckMetalizado" min="-2" max="-2" attributes="0"/>
                                       <Component id="chckAireAcondicionado" alignment="0" min="-2" max="-2" attributes="0"/>
                                   </Group>
-                                  <EmptySpace max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="1" attributes="0">
-                                  <EmptySpace pref="19" max="32767" attributes="0"/>
-                                  <Component id="btnCalcularPrecio" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="17" max="-2" attributes="0"/>
+                                  <EmptySpace pref="49" max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -737,9 +732,7 @@
                                   <Component id="chckAireAcondicionado" min="-2" max="-2" attributes="0"/>
                                   <EmptySpace max="-2" attributes="0"/>
                                   <Component id="chckMetalizado" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace pref="15" max="32767" attributes="0"/>
-                                  <Component id="btnCalcularPrecio" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
+                                  <EmptySpace max="32767" attributes="0"/>
                               </Group>
                           </Group>
                         </DimensionLayout>
@@ -749,18 +742,16 @@
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Aire Acondicionado"/>
                           </Properties>
+                          <Events>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chckAireAcondicionadoActionPerformed"/>
+                          </Events>
                         </Component>
                         <Component class="javax.swing.JCheckBox" name="chckMetalizado">
                           <Properties>
                             <Property name="text" type="java.lang.String" value="Metalizado"/>
                           </Properties>
-                        </Component>
-                        <Component class="javax.swing.JButton" name="btnCalcularPrecio">
-                          <Properties>
-                            <Property name="text" type="java.lang.String" value="Calcular Nuevo Precio"/>
-                          </Properties>
                           <Events>
-                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnCalcularPrecioActionPerformed"/>
+                            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="chckMetalizadoActionPerformed"/>
                           </Events>
                         </Component>
                       </SubComponents>
