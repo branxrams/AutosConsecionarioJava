@@ -32,9 +32,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
     private Vehiculo vehiculoActual;
     private DefaultTableModel modeloTabla;
     
-    // lista vehiculos
-    private Vehiculo[] dataVehiculo;
-    private Vendedor[] dataVendedor;
 
     public VistaPrincipal() {
         
@@ -59,94 +56,12 @@ public class VistaPrincipal extends javax.swing.JFrame {
         this.modeloTabla = new DefaultTableModel(columnNames, 0);
         
         
-        // data de prueba
-        dataVehiculo = new Vehiculo[10];
-        dataVendedor = new Vendedor[2];
+        
         
         initComponents();
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         
-    }
-
-    // Funcion para data de prueba
-    private void dataTest() {
-        for (int i = 0; i < dataVehiculo.length; i++) {
-            dataVehiculo[i] = new Vehiculo();
-        }
-
-        for (int i = 0; i < dataVendedor.length; i++) {
-            dataVendedor[i] = new Vendedor();
-        }
-
-        this.dataVendedor[0].setDni("1234");
-        this.dataVendedor[0].setNombre("Bryan");
-        this.dataVendedor[0].setDireccion("B");
-        this.dataVendedor[0].setTelefono("g");
-
-        this.dataVendedor[1].setDni("0987");
-        this.dataVendedor[1].setNombre("BryanB");
-        this.dataVendedor[1].setDireccion("B");
-        this.dataVendedor[1].setTelefono("g");
-
-        for (Vendedor vn : dataVendedor) {
-            concesionario.agregarVendedor(vn);
-        }
-
-        this.dataVehiculo[0].setMatricula("AAA-123");
-        this.dataVehiculo[1].setMatricula("AAA-234");
-        this.dataVehiculo[2].setMatricula("AAA-345");
-        this.dataVehiculo[3].setMatricula("AAA-456");
-        this.dataVehiculo[4].setMatricula("AAA-567");
-        this.dataVehiculo[5].setMatricula("AAA-678");
-        this.dataVehiculo[6].setMatricula("AAA-789");
-        this.dataVehiculo[7].setMatricula("AAA-890");
-        this.dataVehiculo[8].setMatricula("AAA-321");
-        this.dataVehiculo[9].setMatricula("AAA-432");
-        this.dataVehiculo[0].setMarca("Mazda");
-        this.dataVehiculo[1].setMarca("Toyota");
-        this.dataVehiculo[2].setMarca("Ford");
-        this.dataVehiculo[3].setMarca("Honda");
-        this.dataVehiculo[4].setMarca("Honda");
-        this.dataVehiculo[5].setMarca("Mazda");
-        this.dataVehiculo[6].setMarca("Toyota");
-        this.dataVehiculo[7].setMarca("Chevrolet");
-        this.dataVehiculo[8].setMarca("Chevrolet");
-        this.dataVehiculo[9].setMarca("Mercedez");
-        this.dataVehiculo[0].setModelo("2012");
-        this.dataVehiculo[1].setModelo("2013");
-        this.dataVehiculo[2].setModelo("2014");
-        this.dataVehiculo[3].setModelo("2015");
-        this.dataVehiculo[4].setModelo("2016");
-        this.dataVehiculo[5].setModelo("2017");
-        this.dataVehiculo[6].setModelo("2018");
-        this.dataVehiculo[7].setModelo("2019");
-        this.dataVehiculo[8].setModelo("2011");
-        this.dataVehiculo[9].setModelo("2010");
-        this.dataVehiculo[0].setCilindrada("260");
-        this.dataVehiculo[1].setCilindrada("260");
-        this.dataVehiculo[2].setCilindrada("260");
-        this.dataVehiculo[3].setCilindrada("260");
-        this.dataVehiculo[4].setCilindrada("260");
-        this.dataVehiculo[5].setCilindrada("260");
-        this.dataVehiculo[6].setCilindrada("260");
-        this.dataVehiculo[7].setCilindrada("260");
-        this.dataVehiculo[8].setCilindrada("260");
-        this.dataVehiculo[9].setCilindrada("260");
-        this.dataVehiculo[0].setPrecio(120000000);
-        this.dataVehiculo[1].setPrecio(130000000);
-        this.dataVehiculo[2].setPrecio(140000000);
-        this.dataVehiculo[3].setPrecio(150000000);
-        this.dataVehiculo[4].setPrecio(10000000);
-        this.dataVehiculo[5].setPrecio(180000000);
-        this.dataVehiculo[6].setPrecio(150000000);
-        this.dataVehiculo[7].setPrecio(250000000);
-        this.dataVehiculo[8].setPrecio(120000000);
-        this.dataVehiculo[9].setPrecio(150000000);
-
-        for (Vehiculo vh : dataVehiculo) {
-            concesionario.agregarVehiculo(vh);
-        }
     }
 
     /**
@@ -1364,7 +1279,6 @@ public class VistaPrincipal extends javax.swing.JFrame {
         if (txtMatriculaLetras.getText().equals("") || txtMatriculaNumero.getText().equals("")
             || txtMarca.getText().equals("") || txtModelo.getText().equals("")
             || txtCilindraje.getText().equals("") || txtPrecio.getText().equals("")) {
-            dataTest(); // Agregar data de prueba
             return;
         }
 
