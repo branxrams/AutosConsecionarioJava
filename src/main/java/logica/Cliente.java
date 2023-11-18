@@ -16,7 +16,8 @@ public class Cliente {
 
     public Cliente() {
     }
-
+    
+    //Constructor por def
     public Cliente(String nombre, String dni, String direccion, String telefono) {
         this.nombre = nombre;
         this.dni = dni;

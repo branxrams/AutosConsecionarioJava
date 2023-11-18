@@ -107,7 +107,7 @@ public class Concesionario {
 
     // Busca una venta por ID
     public List<Venta> buscarVentaId(String id) {
-        List<Venta> ventasEncontradas = new ArrayList<>();
+        List<Venta> ventasEncontradas = new ArrayList<>(); //La lista crece a medida que los datos entran
         for (Venta venta : listaVenta) {
             if (venta != null && venta.getCliente().getDni().equals(id)) {
                 ventasEncontradas.add(venta);

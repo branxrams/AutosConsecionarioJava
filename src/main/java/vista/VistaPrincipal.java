@@ -19,7 +19,7 @@ import logica.Venta;
 
 /**
  *
- * @author brara
+ * @author
  */
 public class VistaPrincipal extends javax.swing.JFrame {
 

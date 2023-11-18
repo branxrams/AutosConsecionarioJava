@@ -16,7 +16,7 @@ public class Vendedor {
 
     public Vendedor() {
     }
-
+    //constructpr por def
     public Vendedor(String nombre, String dni, String direccion, String telefono) {
         this.nombre = nombre;
         this.dni = dni;

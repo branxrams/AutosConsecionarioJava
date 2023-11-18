@@ -15,7 +15,7 @@ public class Vehiculo {
     private String cilindrada;
     private int precio;
     private boolean usado;
-    private String[] opciones = {"", ""};
+    private String[] opciones = {"", ""}; //por defecto es vacia
 
     public Vehiculo() { // Constructor por defecto
     }

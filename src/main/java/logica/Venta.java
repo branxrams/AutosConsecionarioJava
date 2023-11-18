@@ -24,7 +24,7 @@ public class Venta {
 
     public Venta() {
     }
-
+    //Constructor por def
     public Venta(Cliente cliente, Vehiculo vehiculo, Vendedor vendedor) {
         this.cliente = cliente;
         this.vehiculo = vehiculo;
