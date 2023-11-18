@@ -219,7 +219,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
         lblVentasNombreCliente = new javax.swing.JLabel();
         lblVentasNombreVendedor = new javax.swing.JLabel();
         lblVentasDniVendedor = new javax.swing.JLabel();
-        lblVentasUsado = new javax.swing.JLabel();
+        lblVentasCesion = new javax.swing.JLabel();
+        lblVentasUsado1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -880,8 +881,11 @@ public class vistaPrincipal extends javax.swing.JFrame {
         lblVentasDniVendedor.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
         lblVentasDniVendedor.setText("Dni Vendedor: -");
 
-        lblVentasUsado.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
-        lblVentasUsado.setText("Usado: -");
+        lblVentasCesion.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblVentasCesion.setText("Venta por Cesion: -");
+
+        lblVentasUsado1.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
+        lblVentasUsado1.setText("Usado: -");
 
         javax.swing.GroupLayout panelDatosVentaBuscarLayout = new javax.swing.GroupLayout(panelDatosVentaBuscar);
         panelDatosVentaBuscar.setLayout(panelDatosVentaBuscarLayout);
@@ -897,7 +901,8 @@ public class vistaPrincipal extends javax.swing.JFrame {
                     .addComponent(lblVentasNombreCliente)
                     .addComponent(lblVentasDniVendedor)
                     .addComponent(lblVentasNombreVendedor)
-                    .addComponent(lblVentasUsado))
+                    .addComponent(lblVentasCesion)
+                    .addComponent(lblVentasUsado1))
                 .addContainerGap(341, Short.MAX_VALUE))
         );
         panelDatosVentaBuscarLayout.setVerticalGroup(
@@ -917,8 +922,10 @@ public class vistaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblVentasOpcAdiconales)
                 .addGap(18, 18, 18)
-                .addComponent(lblVentasUsado)
-                .addContainerGap(147, Short.MAX_VALUE))
+                .addComponent(lblVentasUsado1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblVentasCesion)
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         lblVentasFechaVenta.getAccessibleContext().setAccessibleName("Fecha Venta: -");
@@ -968,7 +975,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(panelConcesionaria, javax.swing.GroupLayout.PREFERRED_SIZE, 818, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(panelConcesionaria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -979,185 +986,16 @@ public class vistaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCalcularPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularPrecioActionPerformed
-        int precio = vehiculoActual.getPrecio(); //se trae el vehiculo que dio resultado en la busqueda y trabajar con el
-        if (calculado) {
-            JOptionPane.showMessageDialog(null, "Ya el precio ha sido calculado", "Calcular adicionales",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        //si el check button esta seleccionado, se le aumenta el precio
-        if (this.chckAireAcondicionado.isSelected()) {
-            vehiculoActual.setPrecio(precio += 500000);
-            calculado = true; // se actualiza la bandera para que no sea calculado mas de una vez
-        }
-
-        //Si el check button esta seleccionado, se le aumenta el precio
-        if (this.chckMetalizado.isSelected()) {
-            vehiculoActual.setPrecio(precio += 800000);
-            calculado = true; //Se actualiza la bandera para que no calcule mas de una vez
-        }
-
-        this.lblDatosPrecio.setText("Precio: " + concesionario.formatoValor(vehiculoActual.getPrecio()));
-    }//GEN-LAST:event_btnCalcularPrecioActionPerformed
-
-    private void btnVenderVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderVehiculoActionPerformed
-        //Verificamos que exista un vehiculo vigente pata vender
-        if (vehiculoActual == null) {
-            JOptionPane.showMessageDialog(null, "Aun no has buscado un vehiculo", "Vender Vehiculo",
-                    JOptionPane.ERROR_MESSAGE);
-            return;
-        }
-
-        if (txtDniClienteVenta.getText().equals("") || txtDniVendedorVenta.getText().equals("")) {
-            JOptionPane.showMessageDialog(null, "Dni de clientes y Vendedor deben llenarse", "Vender Vehiculo",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-
-        String dniCliente = txtDniClienteVenta.getText();
-        String dniVendedor = txtDniVendedorVenta.getText();
-
-        Cliente cliente = concesionario.buscarCliente(dniCliente);
-        Vendedor vendedor = concesionario.buscarVendedor(dniVendedor);
-
-        if (cliente != null) {
-            if (vendedor != null) {
-                Venta venta = new Venta(cliente, vehiculoActual, vendedor);
-
-                concesionario.agregarVenta(venta);
-                calculado = false;
-                vehiculoActual = null;
-                JOptionPane.showMessageDialog(null, "Vehiculo Vendido Correctamente", "Vender Nuevo Vehiculo",
-                        JOptionPane.INFORMATION_MESSAGE);
-                //Limpieamos los campos una vez realizada la venta
-                txtDniClienteVenta.setText("");
-                txtDniVendedorVenta.setText("");
-                txtNumerosMatricula.setText("");
-                txtLetrasMatricula.setText("");
-                chckAireAcondicionado.setSelected(false);
-                chckMetalizado.setSelected(false);
-
-            } else {
-                JOptionPane.showMessageDialog(null, "Vendedor no existe", "Vender Vehiculo",
-                        JOptionPane.ERROR_MESSAGE);
-            }
-        } else {
-            JOptionPane.showMessageDialog(null, "Cliente no existe", "Vender Vehiculo",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-
-    }//GEN-LAST:event_btnVenderVehiculoActionPerformed
-
-    private void btnBuscarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarMatriculaActionPerformed
-        // Se Verifica que los campos esten vacios para evitar enviar datos vacios
-        if (txtLetrasMatricula.getText().equals("") || txtNumerosMatricula.getText().equals("")) {
-            return;
-        }
-
-        // Se obtiene los datos del campo y se guardan en una variable para mejor manejo
-        String matricula = txtLetrasMatricula.getText() + "-" + txtNumerosMatricula.getText();
-
-        Vehiculo vehiculo = concesionario.buscarVehiculo(matricula);
-
-        if (vehiculo != null) {
-            this.lblDatosMatricula.setText("Matricula: " + vehiculo.getMatricula());
-            this.lblDatosMarca.setText("Marca: " + vehiculo.getMarca());
-            this.lblDatosModelo.setText("Modelo: " + vehiculo.getModelo());
-            this.lblDatosCilindrada.setText("CC: " + vehiculo.getCilindrada());
-            this.lblDatosPrecio.setText("Precio: " + concesionario.formatoValor(vehiculo.getPrecio()));
-            this.vehiculoActual = vehiculo; // se Guarda en una variable global el vehiculo actual para operarlo despues
-        } else {
-            JOptionPane.showMessageDialog(null, "Matricula no encontrada", "Buscar Matricula",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnBuscarMatriculaActionPerformed
-
-    private void btnAgregarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVehiculoActionPerformed
-        // Condicional para evitar que el codigo se ejecite con los campos vacios
-        if (txtMatriculaLetras.getText().equals("") || txtMatriculaNumero.getText().equals("")
-                || txtMarca.getText().equals("") || txtModelo.getText().equals("")
-                || txtCilindraje.getText().equals("") || txtPrecio.getText().equals("")) {
-            dataTest(); // Agregar data de prueba
-            return;
-        }
-
-        // Se obtienen todos los datos de cada campo y se guardan en variables para
-        // mejor manejo
-        String matricula = txtMatriculaLetras.getText() + "-" + txtMatriculaNumero.getText();
-        String marca = txtMarca.getText();
-        String modelo = txtModelo.getText();
-        String cilindraje = txtCilindraje.getText();
-        int precio = Integer.parseInt(txtPrecio.getText()); // Se convierte el valor del campo en un integer para operar
-        // con el
-        // Se construye un objeto de tipo vehiculo para proceder a guardar
-        Vehiculo vehiculo = new Vehiculo(matricula, marca, modelo, cilindraje, precio);
-
-        if (concesionario.agregarVehiculo(vehiculo)) { // comparar si el buscador guardo correctamente
-            JOptionPane.showMessageDialog(null, "Vehiculo agregado Correctamente", "Agregar Nuevo Vehiculo",
-                    JOptionPane.INFORMATION_MESSAGE);
-
-            // Se manda un mensaje de confirmacion que ya se ha guardado
-            // Se limpian los campos del formulario
-            txtMatriculaLetras.setText("");
-            txtMatriculaNumero.setText("");
-            txtMarca.setText("");
-            txtModelo.setText("");
-            txtCilindraje.setText("");
-            txtPrecio.setText("");
-            this.lblCantidadVehiculosRegistrados
-                    .setText("Cantidad de Vehiculos registrados: " + concesionario.getIndiceVehiculo() + "/150");
-        } else {
-            // Si ocurrio algun error, se manda un mensaje de error
-            JOptionPane.showMessageDialog(null, "Vehiculo ya existe.", "Vehiculo nuevo Cliente.",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnAgregarVehiculoActionPerformed
-
-    private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
-        // Condicional para evitar que el codigo se ejecite con los campos vacios
-        if (txtNombre.getText().equals("") || txtDni.getText().equals("") || txtDireccion.getText().equals("")
-                || txtTelefono.getText().equals("")) {
-            return;
-        }
-
-        // Se obtienen todos los datos de cada campo y se guardan en variables para
-        // mejor manejo
-        String nombre = txtNombre.getText();
-        String dni = txtDni.getText();
-        String direccion = txtDireccion.getText();
-        String telefono = txtTelefono.getText();
-
-        // Se construye un objeto de tipo vehiculo para proceder a guardar
-        Cliente cliente = new Cliente(nombre, dni, direccion, telefono);
-
-        if (concesionario.agregarCliente(cliente)) {
-            JOptionPane.showMessageDialog(null, "Cliente agregado Correctamente", "Agregar Nuevo Cliente",
-                    JOptionPane.INFORMATION_MESSAGE);
-            // Se manda un mensaje de confirmacion que ya se ha guardado
-            // Se limpian los campos del formulario
-            txtNombre.setText("");
-            txtDni.setText("");
-            txtDireccion.setText("");
-            txtTelefono.setText("");
-        } else {
-            // Si ocurrio algun error, se manda un mensaje de error
-            JOptionPane.showMessageDialog(null, "Cliente ya existe.", "Agregar nuevo Cliente.",
-                    JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_btnAgregarClienteActionPerformed
-
     private void btnBuscarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarVentasActionPerformed
         //Comprbamos que el campo no este vacio
         if (txtBuscarVentaCliente.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Debes llenar el campo", "Buscar Venta",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         String dniCliente = txtBuscarVentaCliente.getText();
         String usado = "";
-        
 
         //Buscamos el cliente dentro del registro de ventas
         Venta venta = concesionario.buscarVentaId(dniCliente);
@@ -1169,35 +1007,49 @@ public class vistaPrincipal extends javax.swing.JFrame {
             }else{
                 usado = "No";
             }
-            
+
             lblVentasDniCliente.setText("DNI Cliente: " + venta.getCliente().getDni());
             lblVentasNombreCliente.setText("Cliente: " + venta.getCliente().getNombre());
             lblVentasDniVendedor.setText("DNI Vendedor: " + venta.getVendedor().getDni());
             lblVentasNombreVendedor.setText("Vendedor: " + venta.getVendedor().getNombre());
             lblVentasFechaVenta.setText("Fecha Venta: " + venta.getFecha());
             lblVentasModelo.setText("Modelo: " + venta.getVehiculo().getModelo());
-            lblVentasUsado.setText("Usado: " + usado);
+            lblVentasCesion.setText("Usado: " + usado);
             //lblVentasDniCliente.setText("Opc Adicionales: " + venta.getCliente().getDni());
 
             txtBuscarVentaCliente.setText("");
         } else {
             JOptionPane.showMessageDialog(null, "El DNI" + dniCliente + " No ha realizado ninguna compra", "Buscar Venta",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
             txtBuscarVentaCliente.setText("");
         }
     }//GEN-LAST:event_btnBuscarVentasActionPerformed
+
+    private void chckCederVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chckCederVehiculoActionPerformed
+        boolean estado = chckCederVehiculo.isSelected();
+
+        btnVenderVehiculo.setEnabled(!estado);
+        btnCederVehiculo.setEnabled(estado);
+        panelDatosVehiculoUsado.setEnabled(estado);
+        txtLetraMatriculaCeder.setEnabled(estado);
+        txtNumeroMatriculaCeder.setEnabled(estado);
+        txtMarcaCeder.setEnabled(estado);
+        txtModeloCeder.setEnabled(estado);
+        txtPrecioCeder.setEnabled(estado);
+        txtCilindrajeCeder.setEnabled(estado);
+    }//GEN-LAST:event_chckCederVehiculoActionPerformed
 
     private void btnCederVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCederVehiculoActionPerformed
         //Verificamos que exista un vehiculo vigente pata vender
         if (vehiculoActual == null) {
             JOptionPane.showMessageDialog(null, "Aun no has buscado un vehiculo", "Vender Vehiculo",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
             return;
         }
 
         if (txtDniClienteVenta.getText().equals("") || txtDniVendedorVenta.getText().equals("")) {
             JOptionPane.showMessageDialog(null, "Dni de clientes y Vendedor deben llenarse", "Vender Vehiculo",
-                    JOptionPane.ERROR_MESSAGE);
+                JOptionPane.ERROR_MESSAGE);
         }
 
         //Taemos los datos de los campos de DNI de cliente y Vendedor
@@ -1232,7 +1084,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Vendedor no existe", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         //Construimos un nuevo vehiculo
         Vehiculo vehiculo = new Vehiculo(matricula, marca, modelo, cilindraje, precio);
 
@@ -1240,20 +1092,20 @@ public class vistaPrincipal extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Matricula del vehiculo ya existe", "Vender Vehiculo", JOptionPane.ERROR_MESSAGE);
             return;
         }
-        
+
         // Seteamos que el nuevo vehiculo es un vehiculo usado agregamos el nuevo vehiculo que ha sido cedido
         vehiculo.setUsado(true);
         concesionario.agregarVehiculo(vehiculo);
-        
+
         //Seteamos que la venta fue por cesion de un vehiculo y creamos la nueva venta
         Venta venta = new Venta(cliente, vehiculoActual, vendedor);
         venta.setCedido(true);
-            
+
         concesionario.agregarVenta(venta);
-        
+
         //mensaje de confirmacion
         JOptionPane.showMessageDialog(null, "Vehiculo Vendido Correctamente", "Vender Nuevo Vehiculo", JOptionPane.INFORMATION_MESSAGE);
-        
+
         //Limpieamos los campos una vez realizada la venta
         txtDniClienteVenta.setText("");
         txtDniVendedorVenta.setText("");
@@ -1261,7 +1113,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
         txtLetrasMatricula.setText("");
         chckAireAcondicionado.setSelected(false);
         chckMetalizado.setSelected(false);
-        
+
         //limpiamos variables temporales
         calculado = false;
         vehiculoActual = null;
@@ -1274,19 +1126,172 @@ public class vistaPrincipal extends javax.swing.JFrame {
         this.lblDatosPrecio.setText("Precio: -");
     }//GEN-LAST:event_btnCederVehiculoActionPerformed
 
-    private void chckCederVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_chckCederVehiculoActionPerformed
-        boolean estado = chckCederVehiculo.isSelected();
+    private void btnCalcularPrecioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalcularPrecioActionPerformed
+        int precio = vehiculoActual.getPrecio(); //se trae el vehiculo que dio resultado en la busqueda y trabajar con el
+        if (calculado) {
+            JOptionPane.showMessageDialog(null, "Ya el precio ha sido calculado", "Calcular adicionales",
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
 
-        btnVenderVehiculo.setEnabled(!estado);
-        btnCederVehiculo.setEnabled(estado);
-        panelDatosVehiculoUsado.setEnabled(estado);
-        txtLetraMatriculaCeder.setEnabled(estado);
-        txtNumeroMatriculaCeder.setEnabled(estado);
-        txtMarcaCeder.setEnabled(estado);
-        txtModeloCeder.setEnabled(estado);
-        txtPrecioCeder.setEnabled(estado);
-        txtCilindrajeCeder.setEnabled(estado);
-    }//GEN-LAST:event_chckCederVehiculoActionPerformed
+        //si el check button esta seleccionado, se le aumenta el precio
+        if (this.chckAireAcondicionado.isSelected()) {
+            vehiculoActual.setPrecio(precio += 500000);
+            calculado = true; // se actualiza la bandera para que no sea calculado mas de una vez
+        }
+
+        //Si el check button esta seleccionado, se le aumenta el precio
+        if (this.chckMetalizado.isSelected()) {
+            vehiculoActual.setPrecio(precio += 800000);
+            calculado = true; //Se actualiza la bandera para que no calcule mas de una vez
+        }
+
+        this.lblDatosPrecio.setText("Precio: " + concesionario.formatoValor(vehiculoActual.getPrecio()));
+    }//GEN-LAST:event_btnCalcularPrecioActionPerformed
+
+    private void btnVenderVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVenderVehiculoActionPerformed
+        //Verificamos que exista un vehiculo vigente pata vender
+        if (vehiculoActual == null) {
+            JOptionPane.showMessageDialog(null, "Aun no has buscado un vehiculo", "Vender Vehiculo",
+                JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        if (txtDniClienteVenta.getText().equals("") || txtDniVendedorVenta.getText().equals("")) {
+            JOptionPane.showMessageDialog(null, "Dni de clientes y Vendedor deben llenarse", "Vender Vehiculo",
+                JOptionPane.ERROR_MESSAGE);
+        }
+
+        String dniCliente = txtDniClienteVenta.getText();
+        String dniVendedor = txtDniVendedorVenta.getText();
+
+        Cliente cliente = concesionario.buscarCliente(dniCliente);
+        Vendedor vendedor = concesionario.buscarVendedor(dniVendedor);
+
+        if (cliente != null) {
+            if (vendedor != null) {
+                Venta venta = new Venta(cliente, vehiculoActual, vendedor);
+
+                concesionario.agregarVenta(venta);
+                calculado = false;
+                vehiculoActual = null;
+                JOptionPane.showMessageDialog(null, "Vehiculo Vendido Correctamente", "Vender Nuevo Vehiculo",
+                    JOptionPane.INFORMATION_MESSAGE);
+                //Limpieamos los campos una vez realizada la venta
+                txtDniClienteVenta.setText("");
+                txtDniVendedorVenta.setText("");
+                txtNumerosMatricula.setText("");
+                txtLetrasMatricula.setText("");
+                chckAireAcondicionado.setSelected(false);
+                chckMetalizado.setSelected(false);
+
+            } else {
+                JOptionPane.showMessageDialog(null, "Vendedor no existe", "Vender Vehiculo",
+                    JOptionPane.ERROR_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(null, "Cliente no existe", "Vender Vehiculo",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnVenderVehiculoActionPerformed
+
+    private void btnBuscarMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarMatriculaActionPerformed
+        // Se Verifica que los campos esten vacios para evitar enviar datos vacios
+        if (txtLetrasMatricula.getText().equals("") || txtNumerosMatricula.getText().equals("")) {
+            return;
+        }
+
+        // Se obtiene los datos del campo y se guardan en una variable para mejor manejo
+        String matricula = txtLetrasMatricula.getText() + "-" + txtNumerosMatricula.getText();
+
+        Vehiculo vehiculo = concesionario.buscarVehiculo(matricula);
+
+        if (vehiculo != null) {
+            this.lblDatosMatricula.setText("Matricula: " + vehiculo.getMatricula());
+            this.lblDatosMarca.setText("Marca: " + vehiculo.getMarca());
+            this.lblDatosModelo.setText("Modelo: " + vehiculo.getModelo());
+            this.lblDatosCilindrada.setText("CC: " + vehiculo.getCilindrada());
+            this.lblDatosPrecio.setText("Precio: " + concesionario.formatoValor(vehiculo.getPrecio()));
+            this.vehiculoActual = vehiculo; // se Guarda en una variable global el vehiculo actual para operarlo despues
+        } else {
+            JOptionPane.showMessageDialog(null, "Matricula no encontrada", "Buscar Matricula",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnBuscarMatriculaActionPerformed
+
+    private void btnAgregarVehiculoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarVehiculoActionPerformed
+        // Condicional para evitar que el codigo se ejecite con los campos vacios
+        if (txtMatriculaLetras.getText().equals("") || txtMatriculaNumero.getText().equals("")
+            || txtMarca.getText().equals("") || txtModelo.getText().equals("")
+            || txtCilindraje.getText().equals("") || txtPrecio.getText().equals("")) {
+            dataTest(); // Agregar data de prueba
+            return;
+        }
+
+        // Se obtienen todos los datos de cada campo y se guardan en variables para
+        // mejor manejo
+        String matricula = txtMatriculaLetras.getText() + "-" + txtMatriculaNumero.getText();
+        String marca = txtMarca.getText();
+        String modelo = txtModelo.getText();
+        String cilindraje = txtCilindraje.getText();
+        int precio = Integer.parseInt(txtPrecio.getText()); // Se convierte el valor del campo en un integer para operar
+        // con el
+        // Se construye un objeto de tipo vehiculo para proceder a guardar
+        Vehiculo vehiculo = new Vehiculo(matricula, marca, modelo, cilindraje, precio);
+
+        if (concesionario.agregarVehiculo(vehiculo)) { // comparar si el buscador guardo correctamente
+            JOptionPane.showMessageDialog(null, "Vehiculo agregado Correctamente", "Agregar Nuevo Vehiculo",
+                JOptionPane.INFORMATION_MESSAGE);
+
+            // Se manda un mensaje de confirmacion que ya se ha guardado
+            // Se limpian los campos del formulario
+            txtMatriculaLetras.setText("");
+            txtMatriculaNumero.setText("");
+            txtMarca.setText("");
+            txtModelo.setText("");
+            txtCilindraje.setText("");
+            txtPrecio.setText("");
+            this.lblCantidadVehiculosRegistrados
+            .setText("Cantidad de Vehiculos registrados: " + concesionario.getIndiceVehiculo() + "/150");
+        } else {
+            // Si ocurrio algun error, se manda un mensaje de error
+            JOptionPane.showMessageDialog(null, "Vehiculo ya existe.", "Vehiculo nuevo Cliente.",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAgregarVehiculoActionPerformed
+
+    private void btnAgregarClienteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarClienteActionPerformed
+        // Condicional para evitar que el codigo se ejecite con los campos vacios
+        if (txtNombre.getText().equals("") || txtDni.getText().equals("") || txtDireccion.getText().equals("")
+            || txtTelefono.getText().equals("")) {
+            return;
+        }
+
+        // Se obtienen todos los datos de cada campo y se guardan en variables para
+        // mejor manejo
+        String nombre = txtNombre.getText();
+        String dni = txtDni.getText();
+        String direccion = txtDireccion.getText();
+        String telefono = txtTelefono.getText();
+
+        // Se construye un objeto de tipo vehiculo para proceder a guardar
+        Cliente cliente = new Cliente(nombre, dni, direccion, telefono);
+
+        if (concesionario.agregarCliente(cliente)) {
+            JOptionPane.showMessageDialog(null, "Cliente agregado Correctamente", "Agregar Nuevo Cliente",
+                JOptionPane.INFORMATION_MESSAGE);
+            // Se manda un mensaje de confirmacion que ya se ha guardado
+            // Se limpian los campos del formulario
+            txtNombre.setText("");
+            txtDni.setText("");
+            txtDireccion.setText("");
+            txtTelefono.setText("");
+        } else {
+            // Si ocurrio algun error, se manda un mensaje de error
+            JOptionPane.showMessageDialog(null, "Cliente ya existe.", "Agregar nuevo Cliente.",
+                JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_btnAgregarClienteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1377,6 +1382,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblPrecio;
     private javax.swing.JLabel lblTelefono;
     private javax.swing.JLabel lblTituloBusvarVehiculo;
+    private javax.swing.JLabel lblVentasCesion;
     private javax.swing.JLabel lblVentasDniCliente;
     private javax.swing.JLabel lblVentasDniVendedor;
     private javax.swing.JLabel lblVentasFechaVenta;
@@ -1384,7 +1390,7 @@ public class vistaPrincipal extends javax.swing.JFrame {
     private javax.swing.JLabel lblVentasNombreCliente;
     private javax.swing.JLabel lblVentasNombreVendedor;
     private javax.swing.JLabel lblVentasOpcAdiconales;
-    private javax.swing.JLabel lblVentasUsado;
+    private javax.swing.JLabel lblVentasUsado1;
     private javax.swing.JPanel panelAgregar;
     private javax.swing.JPanel panelAgregarCliente;
     private javax.swing.JPanel panelAgregarVehiculo;
