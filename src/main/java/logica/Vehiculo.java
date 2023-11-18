@@ -14,6 +14,8 @@ public class Vehiculo {
     private String modelo;
     private String cilindrada;
     private int precio;
+    private boolean usado;
+    private String[] opciones = {"", ""};
 
     public Vehiculo() { // Constructor por defecto
     }
@@ -24,6 +26,10 @@ public class Vehiculo {
         this.modelo = modelo;
         this.cilindrada = cilindrada;
         this.precio = precio;
+        
+        
+        //Datos que se setean por defecto cuando se instancia la clase
+        this.usado = false;
     }
 
     // getters
@@ -47,11 +53,19 @@ public class Vehiculo {
     public String getMatricula() {
         return matricula;
     }
+    
+    public boolean getUsado(){
+        return usado;
+    }
+    
+    public String[] getOpciones(){
+        return opciones;
+    }
 
     // Setters
 
-    public void setMarca(String marca) {
-        this.marca = marca;
+    public void setMatricula(String matricula) {
+        this.matricula = matricula;
     }
 
     public void setModelo(String modelo) {
@@ -62,11 +76,29 @@ public class Vehiculo {
         this.cilindrada = cilindrada;
     }
 
-    public void setMarca(int precio) {
-        this.precio = precio;
+    public void setMarca(String marca) {
+        this.marca = marca;
     }
 
-    public void setMatricula(String matricula) {
-        this.matricula = matricula;
+    public void setPrecio(int precio) {
+        this.precio = precio;
     }
+    
+    public void setUsado(boolean usado){
+        this.usado = usado;
+    }
+    
+    public void setOpciones(String[] opciones){
+        this.opciones = opciones;
+    }
+
+//    @Override
+//    public String toString() {
+//        StringBuilder cadena;
+//        cadena = new StringBuilder("Matricula: " + this.matricula + '\n' +
+//                "Modelo: " + this.modelo + "\n" +
+//                "CC: " + this.cilindrada + "\n" +
+//                "Precio: " + this.precio + "\n");
+//        return cadena.toString();
+//    }
 }
